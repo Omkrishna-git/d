@@ -1,0 +1,41 @@
+
+
+PROBLEM STATEMENT: 
+Write a PL/SQL code block to calculate the area of a circle for a value of radius varying from 5 to 9. Store the radius and the corresponding values of the calculated area in an empty table named areas, consisting of two columns, radius and area.
+
+
+CREATE TABLE CircleArea (
+    Radius FLOAT,
+    area FLOAT
+);
+
+
+
+DESC CircleArea;
+
+
+
+
+DELIMITER //
+CREATE PROCEDURE CalcArea(IN radius FLOAT)
+BEGIN
+    DECLARE Area FLOAT;
+    DECLARE invalidRange CONDITION FOR SQLSTATE '45000';
+
+    IF (radius < 5) OR (radius > 9) THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Radius range is 5 to 9';
+    ELSE
+        SET Area = 3.14159 * radius * radius;
+        INSERT INTO CircleArea (Radius, area) VALUES (radius, Area);
+    END IF;
+END //
+DELIMITER ;
+
+
+CALL CalcArea(8);
+CALL CalcArea(12);  
+
+SELECT * FROM CircleArea;
+
+

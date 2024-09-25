@@ -1,0 +1,191 @@
+
+CREATE TABLE Library (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    book_name VARCHAR(100),
+    available_copies INT
+);
+
+CREATE TABLE Library_Audit (
+    audit_id INT AUTO_INCREMENT PRIMARY KEY,
+    record_id INT,
+    operation VARCHAR(10),
+    old_copies INT,
+    change_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+DELIMITER //
+CREATE TRIGGER before_update_library
+BEFORE UPDATE ON Library
+FOR EACH ROW
+BEGIN
+    INSERT INTO Library_Audit (record_id, operation, old_copies, change_time)
+    VALUES (OLD.id, 'UPDATE', OLD.available_copies, NOW());
+END//
+DELIMITER ;
+
+
+
+DELIMITER //
+CREATE TRIGGER before_delete_library
+BEFORE DELETE ON Library
+FOR EACH ROW
+BEGIN
+    INSERT INTO Library_Audit (record_id, operation, old_copies, change_time)
+    VALUES (OLD.id, 'DELETE', OLD.available_copies, NOW());
+END//
+DELIMITER ;
+
+
+
+DELIMITER //
+CREATE TRIGGER before_insert_library
+BEFORE INSERT ON Library
+FOR EACH ROW
+BEGIN
+    -- No need to log old_copies in INSERT trigger, using NEW
+    -- Insert logic can be added here if needed for audits.
+END//
+DELIMITER ;
+
+
+
+INSERT INTO Library (book_name, available_copies)
+VALUES 
+('Yogi', 4),
+('The Secret', 2),
+('Alchemist', 7),
+('Atomic Habit', 2),
+('Chava', 16);
+
+
+SELECT * FROM Library;
+
++----+--------------+------------------+
+| id | book_name    | available_copies |
++----+--------------+------------------+
+|  1 | Yogi         |                4 |
+|  2 | The Secret   |                2 |
+|  3 | Alchemist    |                7 |
+|  4 | Atomic Habit |                2 |
+|  5 | Chava        |               16 |
++----+--------------+------------------+
+
+
+
+UPDATE Library SET book_name = "MrutyunJay" WHERE book_name = "Alchemist";
+
+
+SELECT * FROM Library_Audit;
+
++----------+-----------+-----------+------------+---------------------+
+| audit_id | record_id | operation | old_copies | change_time         |
++----------+-----------+-----------+------------+---------------------+
+|        1 |         3 | UPDATE    |          7 | 2024-09-19 11:40:49 |
++----------+-----------+-----------+------------+---------------------+
+
+
+
+
+SELECT * FROM Library;
+
++----+--------------+------------------+
+| id | book_name    | available_copies |
++----+--------------+------------------+
+|  1 | Yogi         |                4 |
+|  2 | The Secret   |                2 |
+|  3 | MrutyunJay   |                7 |
+|  4 | Atomic Habit |                2 |
+|  5 | Chava        |               16 |
++----+--------------+------------------+
+
+
+
+DELETE FROM Library WHERE book_name = "Bakula";
+
+INSERT INTO Library (book_name, available_copies)
+VALUES ('Shriman Yogi', 8);
+
+
+ DELIMITER //
+ 
+CREATE TRIGGER AfterDeleteLibrary
+AFTER DELETE ON Library
+FOR EACH ROW
+BEGIN
+    INSERT INTO Library_Audit(record_id, operation, old_copies, change_time)
+    VALUES (OLD.id, 'DELETE', OLD.available_copies, NOW());
+END//
+
+
+
+CREATE TRIGGER AfterUpdateLibrary
+AFTER UPDATE ON Library
+FOR EACH ROW
+BEGIN
+    INSERT INTO Library_Audit(record_id, operation, old_copies, change_time)
+    VALUES (OLD.id, 'UPDATE', OLD.available_copies, NOW());
+END//
+
+
+
+
+CREATE TRIGGER AfterInsertLibrary
+AFTER INSERT ON Library
+FOR EACH ROW
+BEGIN
+    INSERT INTO Library_Audit(record_id, operation, old_copies, change_time)
+    VALUES (OLD.id, 'UPDATE', OLD.available_copies, NOW());
+END//
+
+DELIMITER;
+
+
+UPDATE Library SET available_copies = 5 WHERE id = 5;
+
+
+SELECT * FROM Library_Audit;
+
++----------+-----------+-----------+------------+---------------------+
+| audit_id | record_id | operation | old_copies | change_time         |
++----------+-----------+-----------+------------+---------------------+
+|        1 |         3 | UPDATE    |          7 | 2024-09-19 11:40:49 |
+|        2 |         5 | UPDATE    |         16 | 2024-09-19 11:42:42 |
+|        3 |         5 | UPDATE    |         16 | 2024-09-19 11:42:42 |
++----------+-----------+-----------+------------+---------------------+
+
+
+
+DELETE FROM Library WHERE id = 5;
+
+
+SELECT * FROM Library;
+
++----+--------------+------------------+
+| id | book_name    | available_copies |
++----+--------------+------------------+
+|  1 | Yogi         |                4 |
+|  2 | The Secret   |                2 |
+|  3 | MrutyunJay   |                7 |
+|  4 | Atomic Habit |                2 |
++----+--------------+------------------+
+
+
+
+
+SELECT * FROM Library_Audit;
+
++----------+-----------+-----------+------------+---------------------+
+| audit_id | record_id | operation | old_copies | change_time         |
++----------+-----------+-----------+------------+---------------------+
+|        1 |         3 | UPDATE    |          7 | 2024-09-19 11:40:49 |
+|        2 |         5 | UPDATE    |         16 | 2024-09-19 11:42:42 |
+|        3 |         5 | UPDATE    |         16 | 2024-09-19 11:42:42 |
+|        4 |         5 | DELETE    |          5 | 2024-09-19 11:42:42 |
+|        5 |         5 | DELETE    |          5 | 2024-09-19 11:42:42 |
++----------+-----------+-----------+------------+---------------------+
+
+
+
+
+

@@ -1,0 +1,168 @@
+
+CREATE TABLE Invoice (
+    invoice_id INT AUTO_INCREMENT PRIMARY KEY,
+    cust_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    date DATE NOT NULL
+);
+
+
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class InvoiceDatabase {
+    private static final String URL = "jdbc:mariadb://10.10.14.93:3306/te31157_db";
+    private static final String USER = "te31157"; 
+    private static final String PASSWORD = "te31157"; 
+
+    public static void main(String[] args) {
+        try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
+            Scanner sc = new Scanner(System.in)) {
+            System.out.println("Connected to the database.");
+
+            while (true) {
+                System.out.println("\nChoose an operation:");
+                System.out.println("1. Insert Invoices");
+                System.out.println("2. Update Invoice");
+                System.out.println("3. Delete Invoice");
+                System.out.println("4. Display Invoices");
+                System.out.println("5. Exit");
+
+                int choice = sc.nextInt();
+                sc.nextLine(); // Consume newline
+
+                switch (choice) {
+                    case 1:
+                        insertInvoices(con, sc);
+                        break;
+                    case 2:
+                        updateInvoice(con, sc);
+                        break;
+                    case 3:
+                        deleteInvoice(con, sc);
+                        break;
+                    case 4:
+                        displayInvoices(con);
+                        break;
+                    case 5:
+                        System.out.println("Exiting...");
+                        return;
+                    default:
+                        System.out.println("Invalid choice. Try again.");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void insertInvoices(Connection con, Scanner sc) {
+        System.out.println("How many invoices do you want to add?");
+        int n = sc.nextInt();
+        sc.nextLine(); // Consume newline
+
+        try {
+            String insertQuery = "INSERT INTO Invoice (cust_id, product_id, quantity, price, date) VALUES (?, ?, ?, ?, ?)";
+            try (PreparedStatement pstmtInsert = con.prepareStatement(insertQuery)) {
+                for (int i = 0; i < n; i++) {
+                    System.out.print("Enter customer ID: ");
+                    int custId = sc.nextInt();
+                    System.out.print("Enter product ID: ");
+                    int productId = sc.nextInt();
+                    System.out.print("Enter quantity: ");
+                    int quantity = sc.nextInt();
+                    System.out.print("Enter price: ");
+                    double price = sc.nextDouble();
+                    sc.nextLine(); // Consume newline
+                    System.out.print("Enter date (YYYY-MM-DD): ");
+                    String date = sc.nextLine();
+
+                    pstmtInsert.setInt(1, custId);
+                    pstmtInsert.setInt(2, productId);
+                    pstmtInsert.setInt(3, quantity);
+                    pstmtInsert.setDouble(4, price);
+                    pstmtInsert.setString(5, date);
+                    pstmtInsert.executeUpdate();
+                }
+                System.out.println("Invoices added successfully.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void updateInvoice(Connection con, Scanner sc) {
+        System.out.print("Enter invoice ID to update: ");
+        int updateID = sc.nextInt();
+        sc.nextLine(); // Consume newline
+
+        try {
+            System.out.print("Enter new customer ID: ");
+            int updatedCustId = sc.nextInt();
+            System.out.print("Enter new product ID: ");
+            int updatedProductId = sc.nextInt();
+            System.out.print("Enter new quantity: ");
+            int updatedQuantity = sc.nextInt();
+            System.out.print("Enter new price: ");
+            double updatedPrice = sc.nextDouble();
+            sc.nextLine(); // Consume newline
+            System.out.print("Enter new date (YYYY-MM-DD): ");
+            String updatedDate = sc.nextLine();
+
+            String updateQuery = "UPDATE Invoice SET cust_id = ?, product_id = ?, quantity = ?, price = ?, date = ? WHERE invoice_id = ?";
+            try (PreparedStatement pstmtUpdate = con.prepareStatement(updateQuery)) {
+                pstmtUpdate.setInt(1, updatedCustId);
+                pstmtUpdate.setInt(2, updatedProductId);
+                pstmtUpdate.setInt(3, updatedQuantity);
+                pstmtUpdate.setDouble(4, updatedPrice);
+                pstmtUpdate.setString(5, updatedDate);
+                pstmtUpdate.setInt(6, updateID);
+                pstmtUpdate.executeUpdate();
+                System.out.println("Invoice updated successfully.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void deleteInvoice(Connection con, Scanner sc) {
+        System.out.print("Enter invoice ID to delete: ");
+        int deleteID = sc.nextInt();
+
+        try {
+            String deleteQuery = "DELETE FROM Invoice WHERE invoice_id = ?";
+            try (PreparedStatement pstmtDelete = con.prepareStatement(deleteQuery)) {
+                pstmtDelete.setInt(1, deleteID);
+                int rowsAffected = pstmtDelete.executeUpdate();
+                if (rowsAffected > 0) {
+                    System.out.println("Invoice deleted successfully.");
+                } else {
+                    System.out.println("Invoice not found.");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void displayInvoices(Connection con) {
+        String sql = "SELECT * FROM Invoice";
+        try (Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            System.out.println("ID\tCustomer ID\tProduct ID\tQuantity\tPrice\tDate");
+            while (rs.next()) {
+                System.out.println(rs.getInt(1) + "\t" + rs.getInt(2) + "\t" +
+                        rs.getInt(3) + "\t" + rs.getInt(4) + "\t" + 
+                        rs.getDouble(5) + "\t" + rs.getString(6));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+

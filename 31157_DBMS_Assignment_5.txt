@@ -1,0 +1,92 @@
+
+
+Title :-  Write a PL/SQL stored procedure and function.
+
+PROBLEM STATEMENT/DEFINITION :-
+Write a Stored Procedure namely proc_Grade for the categorization of student. If marks scored by students in
+examination is <=1500 and marks>=990 then student will be placed in distinction category if marks scored are between 989 
+and 900 category is first class, if marks899and 825 category is Higher Second Class.
+
+
+
+CREATE TABLE stud_marks (
+    Rollno INT PRIMARY KEY,
+    Name VARCHAR(20) NOT NULL,
+    Marks INT NOT NULL
+);
+
+
+
+CREATE TABLE result (
+    rollno INT PRIMARY KEY,
+    Sname VARCHAR(20) NOT NULL,
+    class VARCHAR(30) NOT NULL,
+    CONSTRAINT fk_roll FOREIGN KEY (rollno) REFERENCES stud_marks(Rollno) ON DELETE CASCADE
+);
+
+
+INSERT INTO stud_marks VALUES (1, 'Onkar', 1360);
+INSERT INTO stud_marks VALUES (2, 'Abhi', 920);
+INSERT INTO stud_marks VALUES (3, 'Ganesh', 750);
+INSERT INTO stud_marks VALUES (4, 'Hari', 1400);
+INSERT INTO stud_marks VALUES (5, 'Ram', 870);
+
+
+SELECT * FROM stud_marks;
+
+
+
+DELIMITER //
+CREATE FUNCTION proc_Grade (r INT) RETURNS VARCHAR(30)
+    BEGIN
+    DECLARE sclass VARCHAR(30);
+    DECLARE m INT;
+    DECLARE n VARCHAR(20);
+ 
+    SELECT Marks, Name INTO m, n FROM stud_marks WHERE Rollno = r;
+   
+    IF m >= 990 AND m <= 1500 THEN
+        SET sclass = 'Distinction';
+    ELSEIF m >= 900 AND m <= 989 THEN
+        SET sclass = 'First Class';
+    ELSEIF m >= 825 AND m <= 899 THEN
+        SET sclass = 'Higher Second Class';
+    ELSE
+        SET sclass = 'Fail';
+    END IF;
+
+    CALL insert_result(r, n, sclass);
+    RETURN sclass;
+END //
+
+DELIMITER ;
+
+
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE insert_result (IN r INT,IN n VARCHAR(20),IN c VARCHAR(30))
+    BEGIN
+        INSERT INTO result VALUES (r, n, c);
+END //
+
+DELIMITER ;
+
+ 
+ 
+SELECT * FROM result;
+
+
+
+
+SELECT proc_Grade(1);  
+SELECT proc_Grade(2);  
+SELECT proc_Grade(3);  
+SELECT proc_Grade(4);  
+SELECT proc_Grade(5);  
+
+
+SELECT *from result;
+

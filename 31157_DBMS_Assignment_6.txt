@@ -1,0 +1,85 @@
+
+CREATE TABLE Cust_Old (customer_id INT PRIMARY KEY, customer_name VARCHAR(50));
+
+CREATE TABLE Cust_New (customer_id INT PRIMARY KEY, customer_name VARCHAR(50));
+
+
+ INSERT INTO Cust_Old (customer_id, customer_name) VALUES
+ (1, 'Javed '),
+ (2, ' Sanika');
+
+
+INSERT INTO Cust_New (customer_id, customer_name) VALUES
+ (2, 'Soham'),
+ (3, 'Onkar '),
+ (4, 'Ram ');
+
+
+DELIMITER //
+
+CREATE PROCEDURE merge_customer()
+BEGIN
+    DECLARE v_customer_id INT;
+    DECLARE v_customer_name VARCHAR(50);
+    DECLARE finished INT DEFAULT 0;
+
+    DECLARE cur CURSOR FOR SELECT customer_id FROM Cust_Old;
+    DECLARE cust_cursor CURSOR FOR SELECT customer_id, customer_name FROM Cust_New;
+
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET finished = 1;
+
+    OPEN cust_cursor;
+    
+    read_loop: LOOP
+        FETCH cust_cursor INTO v_customer_id, v_customer_name;
+        
+        IF finished THEN
+            LEAVE read_loop;
+        END IF;
+
+        IF NOT EXISTS (SELECT 1 FROM Cust_Old WHERE customer_id = v_customer_id) THEN
+            INSERT INTO Cust_Old (customer_id, customer_name) VALUES (v_customer_id, v_customer_name);
+        END IF;
+    END LOOP;
+
+    CLOSE cust_cursor;
+END //
+
+DELIMITER ;
+
+
+
+select * from Cust_Old;
+
+
+
+
+select * from Cust_New;
+
+
+
+
+CALL merge_customer();
+
+
+select * from Cust_Old;
+
+
+
+DELIMITER ;
+Select * from Cust_Old;
+
+
+select * from Cust_New;
+
+
+
+
+
+CALL merge_customers();
+
+select * from Cust_Old;
+
+
+
+
