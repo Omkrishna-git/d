@@ -1,11 +1,6 @@
 
 Assignment No :- 2
 
-Onkar Dhanaji Patil.
-TE1 M1 31157
-
-
-
 Create Database
 
 +---------------------------+
