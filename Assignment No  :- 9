@@ -1,0 +1,282 @@
+Assignment No  :- 9
+Roll NO :- 31157
+
+_______________________________________________________________________________________________________
+
+db.wonders.insertMany([
+  {
+    name: "Great Wall of China",
+    location: {
+      country: "China",
+      region: "Asia"
+    },
+    year_built: "7th Century BC",
+    description: "A long wall built to protect China from invasions.",
+    visitors_per_year: 10000000,
+    type: "Ancient Wonder",
+    materials: ["Stone", "Brick"],
+    recognized_as_wonder: true,
+    reviews: [
+      {
+        reviewer: "Rajesh Deshmukh",
+        rating: 4.8,
+        review_text: "Stunning views but quite a hike."
+      },
+      {
+        reviewer: "Sneha Kulkarni",
+        rating: 4.5,
+        review_text: "Great experience but tiring."
+      }
+    ]
+  },
+
+  {
+    name: "Petra",
+    location: {
+      country: "Jordan",
+      region: "Middle East"
+    },
+    year_built: "5th Century BC",
+    description: "Ancient city carved into rock.",
+    visitors_per_year: 1000000,
+    type: "Ancient Wonder",
+    materials: ["Rock"],
+    recognized_as_wonder: true,
+    reviews: [
+      {
+        reviewer: "Ajinkya Patil",
+        rating: 4.7,
+        review_text: "Unique and beautiful."
+      },
+      {
+        reviewer: "Minal Pawar",
+        rating: 4.9,
+        review_text: "The carvings are amazing!"
+      }
+    ]
+  },
+
+  {
+    name: "Christ the Redeemer",
+    location: {
+      country: "Brazil",
+      region: "South America"
+    },
+    year_built: "1931",
+    description: "Famous statue overlooking Rio.",
+    visitors_per_year: 2000000,
+    type: "Modern Wonder",
+    materials: ["Concrete", "Soapstone"],
+    recognized_as_wonder: true,
+    reviews: [
+      {
+        reviewer: "Sagar Bhosale",
+        rating: 4.6,
+        review_text: "Beautiful view of the city."
+      },
+      {
+        reviewer: "Prajakta Gaikwad",
+        rating: 4.8,
+        review_text: "Iconic and peaceful."
+      }
+    ]
+  },
+
+
+  {
+    name: "Machu Picchu",
+    location: {
+      country: "Peru",
+      region: "South America"
+    },
+    year_built: "15th Century",
+    description: "Inca citadel in the mountains.",
+    visitors_per_year: 1500000,
+    type: "Ancient Wonder",
+    materials: ["Stone"],
+    recognized_as_wonder: true,
+    reviews: [
+      {
+        reviewer: "Sameer Joshi",
+        rating: 5.0,
+        review_text: "Absolutely breathtaking."
+      },
+      {
+        reviewer: "Neha Sathe",
+        rating: 4.9,
+        review_text: "A magical experience."
+      }
+    ]
+  },
+
+  {
+    name: "Chichen Itza",
+    location: {
+      country: "Mexico",
+      region: "North America"
+    },
+    year_built: "600 AD",
+    description: "Mayan pyramid and ruins.",
+    visitors_per_year: 2500000,
+    type: "Ancient Wonder",
+    materials: ["Stone"],
+    recognized_as_wonder: true,
+    reviews: [
+      {
+        reviewer: "Tejaswini Shinde",
+        rating: 4.7,
+        review_text: "Impressive pyramid."
+      },
+      {
+        reviewer: "Prashant Kulkarni",
+        rating: 4.6,
+        review_text: "Best to visit early."
+      }
+    ]
+  },
+
+  {
+    name: "Roman Colosseum",
+    location: {
+      country: "Italy",
+      region: "Europe"
+    },
+    year_built: "80 AD",
+    description: "Ancient amphitheater in Rome.",
+    visitors_per_year: 7500000,
+    type: "Ancient Wonder",
+    materials: ["Concrete", "Stone"],
+    recognized_as_wonder: true,
+    reviews: [
+      {
+        reviewer: "Rahul Jadhav",
+        rating: 4.9,
+        review_text: "An incredible piece of history."
+      },
+      {
+        reviewer: "Aishwarya More",
+        rating: 4.8,
+        review_text: "Felt like stepping back in time."
+      }
+    ]
+  },
+
+  {
+    name: "Taj Mahal",
+    location: {
+      country: "India",
+      region: "Asia"
+    },
+    year_built: "1648 AD",
+    description: "Marble mausoleum in Agra.",
+    visitors_per_year: 8000000,
+    type: "Modern Wonder",
+    materials: ["White Marble"],
+    recognized_as_wonder: true,
+    reviews: [
+      {
+        reviewer: "Swapnil Pawar",
+        rating: 5.0,
+        review_text: "A symbol of love and beauty."
+      },
+      {
+        reviewer: "Shraddha Pawar",
+        rating: 4.9,
+        review_text: "Architecturally unmatched."
+      }
+    ]
+  }
+]);
+
+
+1) Find Wonders with Visitors Greater Than a Value ($gt)
+
+db.wonders.find({"visitors_per_year": {$gt: 5000000}});
+
+
+2) Find Wonders Located in Asia
+
+db.wonders.find({"location.region": "Asia"});
+
+
+3) Update a Document's Description
+
+db.wonders.updateOne(
+    {name: "Taj Mahal"},
+    {$set: {description: "A beautiful marble mausoleum in Agra."}}
+);
+
+
+4) Increment Visitors per Year for All Wonders Recognized as Wonders
+
+db.wonders.updateMany(
+    {recognized_as_wonder: true},
+    {$inc: {visitors_per_year: 100000}} // Incrementing by 100,000
+);
+
+
+5) Upsert a New Wonder
+If a wonder with the name "New Wonder" doesn't exist, insert it.
+
+db.wonders.updateOne(
+    {name: "New Wonder"},
+    {$set: {location: {country: "Unknown", region: "Unknown"}, year_built: "2023", description: "A new entry", visitors_per_year: 0, type: "Modern Wonder", materials: [], recognized_as_wonder: false}},
+    {upsert: true}
+);
+
+
+6) Find Wonders with Reviews Rating Greater Than 4.5
+
+db.wonders.find({"reviews.rating": {$gt: 4.5}});
+
+
+7) Delete Wonders Made of Stone
+
+db.wonders.deleteMany({"materials": "Stone"});
+
+
+8) Find Document with the Name "Machu Picchu" and Return Only name and year_built
+
+db.wonders.find({name: "Machu Picchu"}, {name: 1, year_built: 1, _id: 0});
+
+
+9) Delete All Documents Where the Name is "Chichen Itza"
+
+db.wonders.deleteMany({name: "Chichen Itza"});
+
+
+10) Add a Review from a New Reviewer
+
+db.wonders.updateOne(
+    {name: "Christ the Redeemer"},
+    {$addToSet: {reviews: {reviewer: "New Reviewer", rating: 4.5, review_text: "A must-visit!"}}}
+);
+
+
+11) Find Documents Where the Type is Either "Ancient Wonder" or "Modern Wonder"
+
+db.wonders.find({$or: [{type: "Ancient Wonder"}, {type: "Modern Wonder"}]});
+
+
+12) Find All Wonders in Europe and Sort by Visitors in Descending Order
+
+db.wonders.find({"location.region": "Europe"}).sort({visitors_per_year: -1});
+
+
+13) Find Wonders That Are Recognized as Wonders and Have Visitors Greater Than 5 Million
+
+db.wonders.find({$and: [{recognized_as_wonder: true}, {visitors_per_year: {$gt: 5000000}}]});
+
+
+14) Update Review for "Machu Picchu"
+
+db.wonders.updateOne(
+    {name: "Machu Picchu", "reviews.reviewer": "Sameer Joshi"},
+    {$set: {"reviews.$.review_text": "Absolutely magnificent experience!"}}
+);
+
+
+
+
+
+
