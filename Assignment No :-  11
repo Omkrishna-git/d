@@ -1,0 +1,413 @@
+Assignment No :-  11
+Name : Onkar Dhanaji Patil
+Roll No.: 31157
+----------------------------------------------------------------------
+
+db.orders.insertMany([
+  {
+    Customer: "Shreya",
+    Address: { City: "Mumbai", Country: "India" },
+    PaymentMode: "Card",
+    Email: "shreya@mail.in",
+    OrderTotal: 1200.00,
+    OrderItems: [
+      { ItemName: "diary", Price: "300.00", Qty: 3 },
+      { ItemName: "pen", Price: "20.00", Qty: 10 }
+    ]
+  },
+  {
+    Customer: "Ajay",
+    Address: { City: "Pune", Country: "India" },
+    PaymentMode: "Cash",
+    Email: "ajay@mail.com",
+    OrderTotal: 450.00,
+    OrderItems: [
+      { ItemName: "notebook", Price: "150.00", Qty: 2 },
+      { ItemName: "journal", Price: "200.00", Qty: 1 }
+    ]
+  },
+  {
+    Customer: "Suresh",
+    Address: { City: "Bangalore", Country: "India" },
+    PaymentMode: "Online",
+    Email: "suresh@mail.in",
+    OrderTotal: 900.00,
+    OrderItems: [
+      { ItemName: "stapler", Price: "150.00", Qty: 2 },
+      { ItemName: "pencil", Price: "5.00", Qty: 100 }
+    ],
+    OnlineApp: "PayTM"
+  },
+  {
+    Customer: "Kiran",
+    Address: { City: "Hyderabad", Country: "India" },
+    PaymentMode: "Card",
+    Email: "kiran@mail.com",
+    OrderTotal: 700.00,
+    OrderItems: [
+      { ItemName: "eraser", Price: "3.00", Qty: 100 },
+      { ItemName: "ruler", Price: "15.00", Qty: 20 }
+    ]
+  },
+  {
+    Customer: "Pooja",
+    Address: { City: "Nagpur", Country: "India" },
+    PaymentMode: "Online",
+    Email: "pooja@mail.in",
+    OrderTotal: 650.00,
+    OrderItems: [
+      { ItemName: "sharpener", Price: "7.00", Qty: 50 },
+      { ItemName: "marker", Price: "20.00", Qty: 15 }
+    ],
+    OnlineApp: "GooglePay"
+  },
+  {
+    Customer: "Rohan",
+    Address: { City: "Chennai", Country: "India" },
+    PaymentMode: "Cash",
+    Email: "rohan@mail.com",
+    OrderTotal: 550.00,
+    OrderItems: [
+      { ItemName: "glue", Price: "25.00", Qty: 20 },
+      { ItemName: "scissors", Price: "50.00", Qty: 4 }
+    ]
+  },
+  {
+    Customer: "Vijay",
+    Address: { City: "Indore", Country: "India" },
+    PaymentMode: "Online",
+    Email: "vijay@mail.in",
+    OrderTotal: 950.00,
+    OrderItems: [
+      { ItemName: "calculator", Price: "500.00", Qty: 1 },
+      { ItemName: "notebook", Price: "150.00", Qty: 3 }
+    ],
+    OnlineApp: "PhonePe"
+  }
+]);
+
+
+
+db.orders.find().pretty();
+
+{
+	"_id" : ObjectId("6704f9fa05c74b795b23c594"),
+	"Customer" : "Shreya",
+	"Address" : {
+		"City" : "Mumbai",
+		"Country" : "India"
+	},
+	"PaymentMode" : "Card",
+	"Email" : "shreya@mail.in",
+	"OrderTotal" : 1200,
+	"OrderItems" : [
+		{
+			"ItemName" : "diary",
+			"Price" : "300.00",
+			"Qty" : 3
+		},
+		{
+			"ItemName" : "pen",
+			"Price" : "20.00",
+			"Qty" : 10
+		}
+	]
+}
+{
+	"_id" : ObjectId("6704f9fa05c74b795b23c595"),
+	"Customer" : "Ajay",
+	"Address" : {
+		"City" : "Pune",
+		"Country" : "India"
+	},
+	"PaymentMode" : "Cash",
+	"Email" : "ajay@mail.com",
+	"OrderTotal" : 450,
+	"OrderItems" : [
+		{
+			"ItemName" : "notebook",
+			"Price" : "150.00",
+			"Qty" : 2
+		},
+		{
+			"ItemName" : "journal",
+			"Price" : "200.00",
+			"Qty" : 1
+		}
+	]
+}
+{
+	"_id" : ObjectId("6704f9fa05c74b795b23c596"),
+	"Customer" : "Suresh",
+	"Address" : {
+		"City" : "Bangalore",
+		"Country" : "India"
+	},
+	"PaymentMode" : "Online",
+	"Email" : "suresh@mail.in",
+	"OrderTotal" : 900,
+	"OrderItems" : [
+		{
+			"ItemName" : "stapler",
+			"Price" : "150.00",
+			"Qty" : 2
+		},
+		{
+			"ItemName" : "pencil",
+			"Price" : "5.00",
+			"Qty" : 100
+		}
+	],
+	"OnlineApp" : "PayTM"
+}
+{
+	"_id" : ObjectId("6704f9fa05c74b795b23c597"),
+	"Customer" : "Kiran",
+	"Address" : {
+		"City" : "Hyderabad",
+		"Country" : "India"
+	},
+	"PaymentMode" : "Card",
+	"Email" : "kiran@mail.com",
+	"OrderTotal" : 700,
+	"OrderItems" : [
+		{
+			"ItemName" : "eraser",
+			"Price" : "3.00",
+			"Qty" : 100
+		},
+		{
+			"ItemName" : "ruler",
+			"Price" : "15.00",
+			"Qty" : 20
+		}
+	]
+}
+{
+	"_id" : ObjectId("6704f9fa05c74b795b23c598"),
+	"Customer" : "Pooja",
+	"Address" : {
+		"City" : "Nagpur",
+		"Country" : "India"
+	},
+	"PaymentMode" : "Online",
+	"Email" : "pooja@mail.in",
+	"OrderTotal" : 650,
+	"OrderItems" : [
+		{
+			"ItemName" : "sharpener",
+			"Price" : "7.00",
+			"Qty" : 50
+		},
+		{
+			"ItemName" : "marker",
+			"Price" : "20.00",
+			"Qty" : 15
+		}
+	],
+	"OnlineApp" : "GooglePay"
+}
+{
+	"_id" : ObjectId("6704f9fa05c74b795b23c599"),
+	"Customer" : "Rohan",
+	"Address" : {
+		"City" : "Chennai",
+		"Country" : "India"
+	},
+	"PaymentMode" : "Cash",
+	"Email" : "rohan@mail.com",
+	"OrderTotal" : 550,
+	"OrderItems" : [
+		{
+			"ItemName" : "glue",
+			"Price" : "25.00",
+			"Qty" : 20
+		},
+		{
+			"ItemName" : "scissors",
+			"Price" : "50.00",
+			"Qty" : 4
+		}
+	]
+}
+{
+	"_id" : ObjectId("6704f9fa05c74b795b23c59a"),
+	"Customer" : "Vijay",
+	"Address" : {
+		"City" : "Indore",
+		"Country" : "India"
+	},
+	"PaymentMode" : "Online",
+	"Email" : "vijay@mail.in",
+	"OrderTotal" : 950,
+	"OrderItems" : [
+		{
+			"ItemName" : "calculator",
+			"Price" : "500.00",
+			"Qty" : 1
+		},
+		{
+			"ItemName" : "notebook",
+			"Price" : "150.00",
+			"Qty" : 3
+		}
+	],
+	"OnlineApp" : "PhonePe"
+}
+
+
+
+var mapFunction = function() {
+    this.OrderItems.forEach(function(item) {
+        emit(this.Customer, parseFloat(item.Price) * item.Qty); 
+    }, this);
+};
+
+var reduceFunction = function(key, values) {
+    return Array.sum(values); // Summing up the total prices
+};
+
+db.orders.mapReduce(
+    mapFunction,
+    reduceFunction,
+    { out: "map_reduce_example" }
+);
+
+db.map_reduce_example.find().sort({ _id: 1 });
+
+{ "_id" : "Ajay", "value" : 500 }
+{ "_id" : "Kiran", "value" : 600 }
+{ "_id" : "Pooja", "value" : 650 }
+{ "_id" : "Rohan", "value" : 700 }
+{ "_id" : "Shreya", "value" : 1100 }
+{ "_id" : "Suresh", "value" : 800 }
+{ "_id" : "Vijay", "value" : 950 }
+
+// Assignment No: 11
+// Name: Onkar Dhanaji Patil
+// Roll No.: 31157
+
+// Inserting multiple order documents
+db.orders.insertMany([
+  {
+    Customer: "Shreya",
+    Address: { City: "Mumbai", Country: "India" },
+    PaymentMode: "Card",
+    Email: "shreya@mail.in",
+    OrderTotal: 1200.00,
+    OrderItems: [
+      { ItemName: "diary", Price: "300.00", Qty: 3 },
+      { ItemName: "pen", Price: "20.00", Qty: 10 }
+    ]
+  },
+  {
+    Customer: "Ajay",
+    Address: { City: "Pune", Country: "India" },
+    PaymentMode: "Cash",
+    Email: "ajay@mail.com",
+    OrderTotal: 450.00,
+    OrderItems: [
+      { ItemName: "notebook", Price: "150.00", Qty: 2 },
+      { ItemName: "journal", Price: "200.00", Qty: 1 }
+    ]
+  },
+  {
+    Customer: "Suresh",
+    Address: { City: "Bangalore", Country: "India" },
+    PaymentMode: "Online",
+    Email: "suresh@mail.in",
+    OrderTotal: 900.00,
+    OrderItems: [
+      { ItemName: "stapler", Price: "150.00", Qty: 2 },
+      { ItemName: "pencil", Price: "5.00", Qty: 100 }
+    ],
+    OnlineApp: "PayTM"
+  },
+  {
+    Customer: "Kiran",
+    Address: { City: "Hyderabad", Country: "India" },
+    PaymentMode: "Card",
+    Email: "kiran@mail.com",
+    OrderTotal: 700.00,
+    OrderItems: [
+      { ItemName: "eraser", Price: "3.00", Qty: 100 },
+      { ItemName: "ruler", Price: "15.00", Qty: 20 }
+    ]
+  },
+  {
+    Customer: "Pooja",
+    Address: { City: "Nagpur", Country: "India" },
+    PaymentMode: "Online",
+    Email: "pooja@mail.in",
+    OrderTotal: 650.00,
+    OrderItems: [
+      { ItemName: "sharpener", Price: "7.00", Qty: 50 },
+      { ItemName: "marker", Price: "20.00", Qty: 15 }
+    ],
+    OnlineApp: "GooglePay"
+  },
+  {
+    Customer: "Rohan",
+    Address: { City: "Chennai", Country: "India" },
+    PaymentMode: "Cash",
+    Email: "rohan@mail.com",
+    OrderTotal: 550.00,
+    OrderItems: [
+      { ItemName: "glue", Price: "25.00", Qty: 20 },
+      { ItemName: "scissors", Price: "50.00", Qty: 4 }
+    ]
+  },
+  {
+    Customer: "Vijay",
+    Address: { City: "Indore", Country: "India" },
+    PaymentMode: "Online",
+    Email: "vijay@mail.in",
+    OrderTotal: 950.00,
+    OrderItems: [
+      { ItemName: "calculator", Price: "500.00", Qty: 1 },
+      { ItemName: "notebook", Price: "150.00", Qty: 3 }
+    ],
+    OnlineApp: "PhonePe"
+  }
+]);
+
+// Sum function to emit the customer name and the total order value
+var sum = function() {
+    var total = 0;
+    this.OrderItems.forEach(function(item) {
+        total += parseFloat(item.Price) * item.Qty;
+    });
+    emit(this.Customer, total);
+};
+
+// Reduce function to sum the total values for each customer
+var reduceFunction = function(key, values) {
+    return Array.sum(values);
+};
+
+// Running MapReduce to calculate the total order sum per customer
+db.orders.mapReduce(
+    sum,
+    reduceFunction,
+    {
+        out: "Result1_mapreduce" // Output collection for total sums
+    }
+);
+
+// Find and display results for total sum
+db.Result1_mapreduce.find().pretty();
+
+// MapReduce to calculate the average order value for each customer
+db.orders.mapReduce(
+    sum, // Using the same sum function for emitting total order values
+    function(key, values) {
+        return Array.avg(values);
+    },
+    {
+        query: { "Address.City": { $in: ["Mumbai", "Pune"] } }, // Query for customers from Mumbai and Pune
+        out: "Result2_mapreduce" // Output collection for average values
+    }
+);
+
+// Find and display results for average order values
+db.Result2_mapreduce.find().pretty();
