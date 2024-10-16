@@ -1,0 +1,269 @@
+Assignment No :- 10
+Roll No :- 31157
+
+__________________________________________________________________________________________________
+
+
+db.orders.insertMany([
+  {
+    Customer: "Shreya",
+    Address: { City: "Mumbai", Country: "India" },
+    PaymentMode: "Card",
+    Email: "shreya@mail.in",
+    OrderTotal: 1200.00,
+    OrderItems: [
+      { ItemName: "diary", Price: "300.00", Qty: 3 },
+      { ItemName: "pen", Price: "20.00", Qty: 10 }
+    ]
+  },
+  {
+    Customer: "Ajay",
+    Address: { City: "Pune", Country: "India" },
+    PaymentMode: "Cash",
+    Email: "ajay@mail.com",
+    OrderTotal: 450.00,
+    OrderItems: [
+      { ItemName: "notebook", Price: "150.00", Qty: 2 },
+      { ItemName: "journal", Price: "200.00", Qty: 1 }
+    ]
+  },
+  {
+    Customer: "Suresh",
+    Address: { City: "Bangalore", Country: "India" },
+    PaymentMode: "Online",
+    Email: "suresh@mail.in",
+    OrderTotal: 900.00,
+    OrderItems: [
+      { ItemName: "stapler", Price: "150.00", Qty: 2 },
+      { ItemName: "pencil", Price: "5.00", Qty: 100 }
+    ],
+    OnlineApp: "PayTM"
+  },
+  {
+    Customer: "Kiran",
+    Address: { City: "Hyderabad", Country: "India" },
+    PaymentMode: "Card",
+    Email: "kiran@mail.com",
+    OrderTotal: 700.00,
+    OrderItems: [
+      { ItemName: "eraser", Price: "3.00", Qty: 100 },
+      { ItemName: "ruler", Price: "15.00", Qty: 20 }
+    ]
+  },
+  {
+    Customer: "Pooja",
+    Address: { City: "Nagpur", Country: "India" },
+    PaymentMode: "Online",
+    Email: "pooja@mail.in",
+    OrderTotal: 650.00,
+    OrderItems: [
+      { ItemName: "sharpener", Price: "7.00", Qty: 50 },
+      { ItemName: "marker", Price: "20.00", Qty: 15 }
+    ],
+    OnlineApp: "GooglePay"
+  },
+  {
+    Customer: "Rohan",
+    Address: { City: "Chennai", Country: "India" },
+    PaymentMode: "Cash",
+    Email: "rohan@mail.com",
+    OrderTotal: 550.00,
+    OrderItems: [
+      { ItemName: "glue", Price: "25.00", Qty: 20 },
+      { ItemName: "scissors", Price: "50.00", Qty: 4 }
+    ]
+  },
+  {
+    Customer: "Vijay",
+    Address: { City: "Indore", Country: "India" },
+    PaymentMode: "Online",
+    Email: "vijay@mail.in",
+    OrderTotal: 950.00,
+    OrderItems: [
+      { ItemName: "calculator", Price: "500.00", Qty: 1 },
+      { ItemName: "notebook", Price: "150.00", Qty: 3 }
+    ],
+    OnlineApp: "PhonePe"
+  }
+]);
+
+db.orders.find();
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+1. Display only Customer and Email field of all documents:
+db.orders.find({}, { Customer: 1, Email: 1, _id: 0 });
+
+[
+  { "Customer": "Shreya", "Email": "shreya@mail.in" },
+  { "Customer": "Ajay", "Email": "ajay@mail.com" },
+  { "Customer": "Suresh", "Email": "suresh@mail.in" },
+  { "Customer": "Kiran", "Email": "kiran@mail.com" },
+  { "Customer": "Pooja", "Email": "pooja@mail.in" },
+  { "Customer": "Rohan", "Email": "rohan@mail.com" },
+  { "Customer": "Vijay", "Email": "vijay@mail.in" }
+]
+
+
+
+2. Find the order where PaymentMode is 'Card':
+db.orders.find({ PaymentMode: "Card" });
+
+[
+  {
+    "Customer": "Shreya",
+    "Address": { "City": "Mumbai", "Country": "India" },
+    "PaymentMode": "Card",
+    "Email": "shreya@mail.in",
+    "OrderTotal": 1200,
+    "OrderItems": [
+      { "ItemName": "diary", "Price": "300.00", "Qty": 3 },
+      { "ItemName": "pen", "Price": "20.00", "Qty": 10 }
+    ]
+  },
+  {
+    "Customer": "Kiran",
+    "Address": { "City": "Hyderabad", "Country": "India" },
+    "PaymentMode": "Card",
+    "Email": "kiran@mail.com",
+    "OrderTotal": 700,
+    "OrderItems": [
+      { "ItemName": "eraser", "Price": "3.00", "Qty": 100 },
+      { "ItemName": "ruler", "Price": "15.00", "Qty": 20 }
+    ]
+  }
+]
+
+
+3. Find the documents where 'paper' was ordered:
+db.orders.find({ "OrderItems.ItemName": "paper" });
+
+[]
+
+
+4. Calculate the total order value per customer:
+db.orders.aggregate([
+  { $group: { _id: "$Customer", totalOrderValue: { $sum: "$OrderTotal" } } }
+]);
+
+[
+  { "_id": "Shreya", "totalOrderValue": 1200 },
+  { "_id": "Ajay", "totalOrderValue": 450 },
+  { "_id": "Suresh", "totalOrderValue": 900 },
+  { "_id": "Kiran", "totalOrderValue": 700 },
+  { "_id": "Pooja", "totalOrderValue": 650 },
+  { "_id": "Rohan", "totalOrderValue": 550 },
+  { "_id": "Vijay", "totalOrderValue": 950 }
+]
+
+ 
+
+5. Count the number of orders made by each city:
+db.orders.aggregate([
+  { $group: { _id: "$Address.City", orderCount: { $sum: 1 } } }
+]);
+
+[
+  { "_id": "Mumbai", "orderCount": 1 },
+  { "_id": "Pune", "orderCount": 1 },
+  { "_id": "Bangalore", "orderCount": 1 },
+  { "_id": "Hyderabad", "orderCount": 1 },
+  { "_id": "Nagpur", "orderCount": 1 },
+  { "_id": "Chennai", "orderCount": 1 },
+  { "_id": "Indore", "orderCount": 1 }
+]
+
+
+6. List customers and the number of different types of items they ordered:
+db.orders.aggregate([
+  { $unwind: "$OrderItems" },
+  { $group: { _id: "$Customer", uniqueItems: { $addToSet: "$OrderItems.ItemName" } } },
+  { $project: { _id: 1, numberOfUniqueItems: { $size: "$uniqueItems" } } }
+]);
+
+[
+  { "_id": "Shreya", "numberOfUniqueItems": 2 },
+  { "_id": "Ajay", "numberOfUniqueItems": 2 },
+  { "_id": "Suresh", "numberOfUniqueItems": 2 },
+  { "_id": "Kiran", "numberOfUniqueItems": 2 },
+  { "_id": "Pooja", "numberOfUniqueItems": 2 },
+  { "_id": "Rohan", "numberOfUniqueItems": 2 },
+  { "_id": "Vijay", "numberOfUniqueItems": 2 }
+]
+
+
+
+7. Calculate total order value and average order value by payment mode:
+db.orders.aggregate([
+  { $group: { _id: "$PaymentMode", totalValue: { $sum: "$OrderTotal" }, avgValue: { $avg: "$OrderTotal" } } },
+  { $sort: { totalValue: -1 } }
+]);
+
+[
+  { "_id": "Online", "totalValue": 2500, "avgValue": 833.33 },
+  { "_id": "Card", "totalValue": 1900, "avgValue": 950 },
+  { "_id": "Cash", "totalValue": 1000, "avgValue": 500 }
+]
+
+
+
+8. Find the top 3 most frequently ordered items:
+db.orders.aggregate([
+  { $unwind: "$OrderItems" },
+  { $group: { _id: "$OrderItems.ItemName", totalOrdered: { $sum: "$OrderItems.Qty" } } },
+  { $sort: { totalOrdered: -1 } },
+  { $limit: 3 }
+]);
+
+[
+  { "_id": "eraser", "totalOrdered": 100 },
+  { "_id": "pencil", "totalOrdered": 100 },
+  { "_id": "sharpener", "totalOrdered": 50 }
+]
+
+
+
+9. Calculate the total number of orders and average order value per city:
+db.orders.aggregate([
+  { $group: { _id: "$Address.City", totalOrders: { $sum: 1 }, avgOrderValue: { $avg: "$OrderTotal" } } }
+]);
+
+[
+  { "_id": "Mumbai", "totalOrders": 1, "avgOrderValue": 1200 },
+  { "_id": "Pune", "totalOrders": 1, "avgOrderValue": 450 },
+  { "_id": "Bangalore", "totalOrders": 1, "avgOrderValue": 900 },
+  { "_id": "Hyderabad", "totalOrders": 1, "avgOrderValue": 700 },
+  { "_id": "Nagpur", "totalOrders": 1, "avgOrderValue": 650 },
+  { "_id": "Chennai", "totalOrders": 1, "avgOrderValue": 550 },
+  { "_id": "Indore", "totalOrders": 1, "avgOrderValue": 950 }
+]
+
+
+10. Find total quantity ordered by each customer:
+db.orders.aggregate([
+  { $unwind: "$OrderItems" },
+  { $group: { _id: "$Customer", totalQty: { $sum: "$OrderItems.Qty" } } }
+]);
+
+[
+  { "_id": "Shreya", "totalQty": 13 },
+  { "_id": "Ajay", "totalQty": 3 },
+  { "_id": "Suresh", "totalQty": 102 },
+  { "_id": "Kiran", "totalQty": 120 },
+  { "_id": "Pooja", "totalQty": 65 },
+  { "_id": "Rohan", "totalQty": 24 },
+  { "_id": "Vijay", "totalQty": 4 }
+]
+
+
+
+
+
+
+
