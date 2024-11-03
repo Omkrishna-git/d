@@ -3,411 +3,258 @@ Name : Onkar Dhanaji Patil
 Roll No.: 31157
 ----------------------------------------------------------------------
 
-db.orders.insertMany([
+db.studentData.insertMany([
   {
-    Customer: "Shreya",
-    Address: { City: "Mumbai", Country: "India" },
-    PaymentMode: "Card",
-    Email: "shreya@mail.in",
-    OrderTotal: 1200.00,
-    OrderItems: [
-      { ItemName: "diary", Price: "300.00", Qty: 3 },
-      { ItemName: "pen", Price: "20.00", Qty: 10 }
+    name: "Shreya",
+    roll: 1,
+    class: "FE",
+    gpa: 9.41,
+    subjects: [
+      { subject: "Maths", marks: 96 },
+      { subject: "Physics", marks: 85 }
     ]
   },
   {
-    Customer: "Ajay",
-    Address: { City: "Pune", Country: "India" },
-    PaymentMode: "Cash",
-    Email: "ajay@mail.com",
-    OrderTotal: 450.00,
-    OrderItems: [
-      { ItemName: "notebook", Price: "150.00", Qty: 2 },
-      { ItemName: "journal", Price: "200.00", Qty: 1 }
+    name: "Aarav",
+    roll: 2,
+    class: "FE",
+    gpa: 8.75,
+    subjects: [
+      { subject: "Maths", marks: 89 },
+      { subject: "Chemistry", marks: 78 },
+      { subject: "English", marks: 82 }
     ]
   },
   {
-    Customer: "Suresh",
-    Address: { City: "Bangalore", Country: "India" },
-    PaymentMode: "Online",
-    Email: "suresh@mail.in",
-    OrderTotal: 900.00,
-    OrderItems: [
-      { ItemName: "stapler", Price: "150.00", Qty: 2 },
-      { ItemName: "pencil", Price: "5.00", Qty: 100 }
-    ],
-    OnlineApp: "PayTM"
-  },
-  {
-    Customer: "Kiran",
-    Address: { City: "Hyderabad", Country: "India" },
-    PaymentMode: "Card",
-    Email: "kiran@mail.com",
-    OrderTotal: 700.00,
-    OrderItems: [
-      { ItemName: "eraser", Price: "3.00", Qty: 100 },
-      { ItemName: "ruler", Price: "15.00", Qty: 20 }
+    name: "Ishita",
+    roll: 3,
+    class: "FE",
+    gpa: 9.12,
+    subjects: [
+      { subject: "Biology", marks: 92 }
     ]
   },
   {
-    Customer: "Pooja",
-    Address: { City: "Nagpur", Country: "India" },
-    PaymentMode: "Online",
-    Email: "pooja@mail.in",
-    OrderTotal: 650.00,
-    OrderItems: [
-      { ItemName: "sharpener", Price: "7.00", Qty: 50 },
-      { ItemName: "marker", Price: "20.00", Qty: 15 }
-    ],
-    OnlineApp: "GooglePay"
-  },
-  {
-    Customer: "Rohan",
-    Address: { City: "Chennai", Country: "India" },
-    PaymentMode: "Cash",
-    Email: "rohan@mail.com",
-    OrderTotal: 550.00,
-    OrderItems: [
-      { ItemName: "glue", Price: "25.00", Qty: 20 },
-      { ItemName: "scissors", Price: "50.00", Qty: 4 }
+    name: "Rohan",
+    roll: 4,
+    class: "SE",
+    gpa: 8.92,
+    subjects: [
+      { subject: "Physics", marks: 81 },
+      { subject: "Maths", marks: 79 },
+      { subject: "History", marks: 72 },
+      { subject: "Geography", marks: 88 }
     ]
   },
   {
-    Customer: "Vijay",
-    Address: { City: "Indore", Country: "India" },
-    PaymentMode: "Online",
-    Email: "vijay@mail.in",
-    OrderTotal: 950.00,
-    OrderItems: [
-      { ItemName: "calculator", Price: "500.00", Qty: 1 },
-      { ItemName: "notebook", Price: "150.00", Qty: 3 }
-    ],
-    OnlineApp: "PhonePe"
+    name: "Maya",
+    roll: 5,
+    class: "FE",
+    gpa: 9.58,
+    subjects: [
+      { subject: "Maths", marks: 95 },
+      { subject: "Chemistry", marks: 88 }
+    ]
+  },
+  {
+    name: "Kabir",
+    roll: 6,
+    class: "SE",
+    gpa: 8.47,
+    subjects: [
+      { subject: "Maths", marks: 74 },
+      { subject: "Physics", marks: 82 },
+      { subject: "Computer Science", marks: 80 }
+    ]
+  },
+  {
+    name: "Nisha",
+    roll: 7,
+    class: "TE",
+    gpa: 9.33,
+    subjects: [
+      { subject: "Maths", marks: 88 }
+    ]
+  },
+  {
+    name: "Sanjay",
+    roll: 8,
+    class: "FE",
+    gpa: 8.69,
+    subjects: [
+      { subject: "Chemistry", marks: 80 },
+      { subject: "Maths", marks: 84 },
+      { subject: "English", marks: 85 }
+    ]
+  },
+  {
+    name: "Pooja",
+    roll: 9,
+    class: "SE",
+    gpa: 9.01,
+    subjects: [
+      { subject: "Physics", marks: 89 },
+      { subject: "Maths", marks: 82 }
+    ]
+  },
+  {
+    name: "Viraj",
+    roll: 10,
+    class: "TE",
+    gpa: 8.77,
+    subjects: [
+      { subject: "Maths", marks: 76 }
+    ]
+  },
+  {
+    name: "Sakshi",
+    roll: 11,
+    class: "FE",
+    gpa: 9.47,
+    subjects: [
+      { subject: "Biology", marks: 90 },
+      { subject: "Maths", marks: 83 },
+      { subject: "Physics", marks: 87 }
+    ]
+  },
+  {
+    name: "Raj",
+    roll: 12,
+    class: "TE",
+    gpa: 8.92,
+    subjects: [
+      { subject: "Physics", marks: 88 },
+      { subject: "Chemistry", marks: 84 },
+      { subject: "Maths", marks: 75 },
+      { subject: "History", marks: 78 }
+    ]
+  },
+  {
+    name: "Ananya",
+    roll: 13,
+    class: "FE",
+    gpa: 9.23,
+    subjects: [
+      { subject: "Maths", marks: 92 }
+    ]
+  },
+  {
+    name: "Aman",
+    roll: 14,
+    class: "SE",
+    gpa: 8.45,
+    subjects: [
+      { subject: "Maths", marks: 77 },
+      { subject: "Physics", marks: 81 }
+    ]
+  },
+  {
+    name: "Simran",
+    roll: 15,
+    class: "FE",
+    gpa: 9.61,
+    subjects: [
+      { subject: "Chemistry", marks: 89 },
+      { subject: "Biology", marks: 93 },
+      { subject: "Maths", marks: 90 },
+      { subject: "Physics", marks: 86 }
+    ]
+  },
+  {
+    name: "Kunal",
+    roll: 16,
+    class: "TE",
+    gpa: 8.96,
+    subjects: [
+      { subject: "Physics", marks: 85 }
+    ]
+  },
+  {
+    name: "Swara",
+    roll: 17,
+    class: "SE",
+    gpa: 9.12,
+    subjects: [
+      { subject: "Maths", marks: 87 },
+      { subject: "Chemistry", marks: 82 },
+      { subject: "English", marks: 79 }
+    ]
+  },
+  {
+    name: "Gaurav",
+    roll: 18,
+    class: "FE",
+    gpa: 9.03,
+    subjects: [
+      { subject: "Maths", marks: 90 },
+      { subject: "Physics", marks: 86 },
+      { subject: "Chemistry", marks: 84 }
+    ]
+  },
+  {
+    name: "Riya",
+    roll: 19,
+    class: "TE",
+    gpa: 8.84,
+    subjects: [
+      { subject: "Biology", marks: 92 },
+      { subject: "Maths", marks: 80 }
+    ]
+  },
+  {
+    name: "Harsh",
+    roll: 20,
+    class: "SE",
+    gpa: 8.57,
+    subjects: [
+      { subject: "Physics", marks: 84 },
+      { subject: "Chemistry", marks: 76 },
+      { subject: "Maths", marks: 79 }
+    ]
   }
 ]);
 
 
+---------------------------------------------------------------------------------------
 
-db.orders.find().pretty();
+// Map function to emit marks per subject
 
-{
-	"_id" : ObjectId("6704f9fa05c74b795b23c594"),
-	"Customer" : "Shreya",
-	"Address" : {
-		"City" : "Mumbai",
-		"Country" : "India"
-	},
-	"PaymentMode" : "Card",
-	"Email" : "shreya@mail.in",
-	"OrderTotal" : 1200,
-	"OrderItems" : [
-		{
-			"ItemName" : "diary",
-			"Price" : "300.00",
-			"Qty" : 3
-		},
-		{
-			"ItemName" : "pen",
-			"Price" : "20.00",
-			"Qty" : 10
-		}
-	]
-}
-{
-	"_id" : ObjectId("6704f9fa05c74b795b23c595"),
-	"Customer" : "Ajay",
-	"Address" : {
-		"City" : "Pune",
-		"Country" : "India"
-	},
-	"PaymentMode" : "Cash",
-	"Email" : "ajay@mail.com",
-	"OrderTotal" : 450,
-	"OrderItems" : [
-		{
-			"ItemName" : "notebook",
-			"Price" : "150.00",
-			"Qty" : 2
-		},
-		{
-			"ItemName" : "journal",
-			"Price" : "200.00",
-			"Qty" : 1
-		}
-	]
-}
-{
-	"_id" : ObjectId("6704f9fa05c74b795b23c596"),
-	"Customer" : "Suresh",
-	"Address" : {
-		"City" : "Bangalore",
-		"Country" : "India"
-	},
-	"PaymentMode" : "Online",
-	"Email" : "suresh@mail.in",
-	"OrderTotal" : 900,
-	"OrderItems" : [
-		{
-			"ItemName" : "stapler",
-			"Price" : "150.00",
-			"Qty" : 2
-		},
-		{
-			"ItemName" : "pencil",
-			"Price" : "5.00",
-			"Qty" : 100
-		}
-	],
-	"OnlineApp" : "PayTM"
-}
-{
-	"_id" : ObjectId("6704f9fa05c74b795b23c597"),
-	"Customer" : "Kiran",
-	"Address" : {
-		"City" : "Hyderabad",
-		"Country" : "India"
-	},
-	"PaymentMode" : "Card",
-	"Email" : "kiran@mail.com",
-	"OrderTotal" : 700,
-	"OrderItems" : [
-		{
-			"ItemName" : "eraser",
-			"Price" : "3.00",
-			"Qty" : 100
-		},
-		{
-			"ItemName" : "ruler",
-			"Price" : "15.00",
-			"Qty" : 20
-		}
-	]
-}
-{
-	"_id" : ObjectId("6704f9fa05c74b795b23c598"),
-	"Customer" : "Pooja",
-	"Address" : {
-		"City" : "Nagpur",
-		"Country" : "India"
-	},
-	"PaymentMode" : "Online",
-	"Email" : "pooja@mail.in",
-	"OrderTotal" : 650,
-	"OrderItems" : [
-		{
-			"ItemName" : "sharpener",
-			"Price" : "7.00",
-			"Qty" : 50
-		},
-		{
-			"ItemName" : "marker",
-			"Price" : "20.00",
-			"Qty" : 15
-		}
-	],
-	"OnlineApp" : "GooglePay"
-}
-{
-	"_id" : ObjectId("6704f9fa05c74b795b23c599"),
-	"Customer" : "Rohan",
-	"Address" : {
-		"City" : "Chennai",
-		"Country" : "India"
-	},
-	"PaymentMode" : "Cash",
-	"Email" : "rohan@mail.com",
-	"OrderTotal" : 550,
-	"OrderItems" : [
-		{
-			"ItemName" : "glue",
-			"Price" : "25.00",
-			"Qty" : 20
-		},
-		{
-			"ItemName" : "scissors",
-			"Price" : "50.00",
-			"Qty" : 4
-		}
-	]
-}
-{
-	"_id" : ObjectId("6704f9fa05c74b795b23c59a"),
-	"Customer" : "Vijay",
-	"Address" : {
-		"City" : "Indore",
-		"Country" : "India"
-	},
-	"PaymentMode" : "Online",
-	"Email" : "vijay@mail.in",
-	"OrderTotal" : 950,
-	"OrderItems" : [
-		{
-			"ItemName" : "calculator",
-			"Price" : "500.00",
-			"Qty" : 1
-		},
-		{
-			"ItemName" : "notebook",
-			"Price" : "150.00",
-			"Qty" : 3
-		}
-	],
-	"OnlineApp" : "PhonePe"
-}
-
-
-
-var mapFunction = function() {
-    this.OrderItems.forEach(function(item) {
-        emit(this.Customer, parseFloat(item.Price) * item.Qty); 
-    }, this);
-};
-
-var reduceFunction = function(key, values) {
-    return Array.sum(values); // Summing up the total prices
-};
-
-db.orders.mapReduce(
-    mapFunction,
-    reduceFunction,
-    { out: "map_reduce_example" }
-);
-
-db.map_reduce_example.find().sort({ _id: 1 });
-
-{ "_id" : "Ajay", "value" : 500 }
-{ "_id" : "Kiran", "value" : 600 }
-{ "_id" : "Pooja", "value" : 650 }
-{ "_id" : "Rohan", "value" : 700 }
-{ "_id" : "Shreya", "value" : 1100 }
-{ "_id" : "Suresh", "value" : 800 }
-{ "_id" : "Vijay", "value" : 950 }
-
-// Assignment No: 11
-// Name: Onkar Dhanaji Patil
-// Roll No.: 31157
-
-// Inserting multiple order documents
-db.orders.insertMany([
-  {
-    Customer: "Shreya",
-    Address: { City: "Mumbai", Country: "India" },
-    PaymentMode: "Card",
-    Email: "shreya@mail.in",
-    OrderTotal: 1200.00,
-    OrderItems: [
-      { ItemName: "diary", Price: "300.00", Qty: 3 },
-      { ItemName: "pen", Price: "20.00", Qty: 10 }
-    ]
-  },
-  {
-    Customer: "Ajay",
-    Address: { City: "Pune", Country: "India" },
-    PaymentMode: "Cash",
-    Email: "ajay@mail.com",
-    OrderTotal: 450.00,
-    OrderItems: [
-      { ItemName: "notebook", Price: "150.00", Qty: 2 },
-      { ItemName: "journal", Price: "200.00", Qty: 1 }
-    ]
-  },
-  {
-    Customer: "Suresh",
-    Address: { City: "Bangalore", Country: "India" },
-    PaymentMode: "Online",
-    Email: "suresh@mail.in",
-    OrderTotal: 900.00,
-    OrderItems: [
-      { ItemName: "stapler", Price: "150.00", Qty: 2 },
-      { ItemName: "pencil", Price: "5.00", Qty: 100 }
-    ],
-    OnlineApp: "PayTM"
-  },
-  {
-    Customer: "Kiran",
-    Address: { City: "Hyderabad", Country: "India" },
-    PaymentMode: "Card",
-    Email: "kiran@mail.com",
-    OrderTotal: 700.00,
-    OrderItems: [
-      { ItemName: "eraser", Price: "3.00", Qty: 100 },
-      { ItemName: "ruler", Price: "15.00", Qty: 20 }
-    ]
-  },
-  {
-    Customer: "Pooja",
-    Address: { City: "Nagpur", Country: "India" },
-    PaymentMode: "Online",
-    Email: "pooja@mail.in",
-    OrderTotal: 650.00,
-    OrderItems: [
-      { ItemName: "sharpener", Price: "7.00", Qty: 50 },
-      { ItemName: "marker", Price: "20.00", Qty: 15 }
-    ],
-    OnlineApp: "GooglePay"
-  },
-  {
-    Customer: "Rohan",
-    Address: { City: "Chennai", Country: "India" },
-    PaymentMode: "Cash",
-    Email: "rohan@mail.com",
-    OrderTotal: 550.00,
-    OrderItems: [
-      { ItemName: "glue", Price: "25.00", Qty: 20 },
-      { ItemName: "scissors", Price: "50.00", Qty: 4 }
-    ]
-  },
-  {
-    Customer: "Vijay",
-    Address: { City: "Indore", Country: "India" },
-    PaymentMode: "Online",
-    Email: "vijay@mail.in",
-    OrderTotal: 950.00,
-    OrderItems: [
-      { ItemName: "calculator", Price: "500.00", Qty: 1 },
-      { ItemName: "notebook", Price: "150.00", Qty: 3 }
-    ],
-    OnlineApp: "PhonePe"
-  }
-]);
-
-// Sum function to emit the customer name and the total order value
 var sum = function() {
-    var total = 0;
-    this.OrderItems.forEach(function(item) {
-        total += parseFloat(item.Price) * item.Qty;
+    this.subjects.forEach(subject => {
+        emit(this.roll, subject.marks);
     });
-    emit(this.Customer, total);
 };
 
-// Reduce function to sum the total values for each customer
+// Reduce function to sum the marks for each student
+
 var reduceFunction = function(key, values) {
     return Array.sum(values);
 };
 
-// Running MapReduce to calculate the total order sum per customer
-db.orders.mapReduce(
-    sum,
-    reduceFunction,
-    {
-        out: "Result1_mapreduce" // Output collection for total sums
-    }
-);
+// Running MapReduce to calculate the total sum of marks per student
+
+db.studentData.mapReduce(sum, reduceFunction, {out: "OutputSum" } );
 
 // Find and display results for total sum
-db.Result1_mapreduce.find().pretty();
 
-// MapReduce to calculate the average order value for each customer
-db.orders.mapReduce(
-    sum, // Using the same sum function for emitting total order values
-    function(key, values) {
-        return Array.avg(values);
-    },
+db.OutputSum.find().pretty();
+
+-----------------------------------------------------------------------------------------
+
+// Query for students with GPA greater than 8.5
+
+db.studentData.mapReduce(
+    sum,
+    function(key, values) { return Array.avg(values); },
     {
-        query: { "Address.City": { $in: ["Mumbai", "Pune"] } }, // Query for customers from Mumbai and Pune
-        out: "Result2_mapreduce" // Output collection for average values
+        query: { gpa: { $gt: 8.5 } }, 
+        out: "OutputAvg" 
     }
 );
 
-// Find and display results for average order values
-db.Result2_mapreduce.find().pretty();
+
+// Find and display results for average marks
+
+db.OutputAvg.find().pretty();
+
+
