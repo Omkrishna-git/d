@@ -3,265 +3,332 @@ Roll No :- 31157
 
 __________________________________________________________________________________________________
 
-
-db.orders.insertMany([
+db.studentData.insertMany([
   {
-    Customer: "Shreya",
-    Address: { City: "Mumbai", Country: "India" },
-    PaymentMode: "Card",
-    Email: "shreya@mail.in",
-    OrderTotal: 1200.00,
-    OrderItems: [
-      { ItemName: "diary", Price: "300.00", Qty: 3 },
-      { ItemName: "pen", Price: "20.00", Qty: 10 }
+    name: "Shreya",
+    roll: 1,
+    year: "FE",
+    gpa: 9.41,
+    attendance: 75,
+    subjects: [
+      { subject: "Maths", marks: 96 },
+      { subject: "Physics", marks: 85 },
+      { subject: "Data Structures", marks: 90 },
+      { subject: "Digital Logic Design", marks: 88 }
     ]
   },
   {
-    Customer: "Ajay",
-    Address: { City: "Pune", Country: "India" },
-    PaymentMode: "Cash",
-    Email: "ajay@mail.com",
-    OrderTotal: 450.00,
-    OrderItems: [
-      { ItemName: "notebook", Price: "150.00", Qty: 2 },
-      { ItemName: "journal", Price: "200.00", Qty: 1 }
+    name: "Aarav",
+    roll: 2,
+    year: "FE",
+    gpa: 8.75,
+    attendance: 80,
+    subjects: [
+      { subject: "Maths", marks: 89 },
+      { subject: "Chemistry", marks: 78 },
+      { subject: "English", marks: 82 },
+      { subject: "Computer Networks", marks: 80 }
     ]
   },
   {
-    Customer: "Suresh",
-    Address: { City: "Bangalore", Country: "India" },
-    PaymentMode: "Online",
-    Email: "suresh@mail.in",
-    OrderTotal: 900.00,
-    OrderItems: [
-      { ItemName: "stapler", Price: "150.00", Qty: 2 },
-      { ItemName: "pencil", Price: "5.00", Qty: 100 }
-    ],
-    OnlineApp: "PayTM"
-  },
-  {
-    Customer: "Kiran",
-    Address: { City: "Hyderabad", Country: "India" },
-    PaymentMode: "Card",
-    Email: "kiran@mail.com",
-    OrderTotal: 700.00,
-    OrderItems: [
-      { ItemName: "eraser", Price: "3.00", Qty: 100 },
-      { ItemName: "ruler", Price: "15.00", Qty: 20 }
+    name: "Ishita",
+    roll: 3,
+    year: "FE",
+    gpa: 9.12,
+    attendance: 90,
+    subjects: [
+      { subject: "Biology", marks: 92 },
+      { subject: "Microprocessors", marks: 86 }
     ]
   },
   {
-    Customer: "Pooja",
-    Address: { City: "Nagpur", Country: "India" },
-    PaymentMode: "Online",
-    Email: "pooja@mail.in",
-    OrderTotal: 650.00,
-    OrderItems: [
-      { ItemName: "sharpener", Price: "7.00", Qty: 50 },
-      { ItemName: "marker", Price: "20.00", Qty: 15 }
-    ],
-    OnlineApp: "GooglePay"
-  },
-  {
-    Customer: "Rohan",
-    Address: { City: "Chennai", Country: "India" },
-    PaymentMode: "Cash",
-    Email: "rohan@mail.com",
-    OrderTotal: 550.00,
-    OrderItems: [
-      { ItemName: "glue", Price: "25.00", Qty: 20 },
-      { ItemName: "scissors", Price: "50.00", Qty: 4 }
+    name: "Rohan",
+    roll: 4,
+    year: "SE",
+    gpa: 8.92,
+    attendance: 85,
+    subjects: [
+      { subject: "Physics", marks: 81 },
+      { subject: "Maths", marks: 79 },
+      { subject: "History", marks: 72 },
+      { subject: "Geography", marks: 88 },
+      { subject: "Operating Systems", marks: 85 }
     ]
   },
   {
-    Customer: "Vijay",
-    Address: { City: "Indore", Country: "India" },
-    PaymentMode: "Online",
-    Email: "vijay@mail.in",
-    OrderTotal: 950.00,
-    OrderItems: [
-      { ItemName: "calculator", Price: "500.00", Qty: 1 },
-      { ItemName: "notebook", Price: "150.00", Qty: 3 }
-    ],
-    OnlineApp: "PhonePe"
+    name: "Maya",
+    roll: 5,
+    year: "FE",
+    gpa: 9.58,
+    attendance: 92,
+    subjects: [
+      { subject: "Maths", marks: 95 },
+      { subject: "Chemistry", marks: 88 },
+      { subject: "Database Management Systems", marks: 92 }
+    ]
+  },
+  {
+    name: "Kabir",
+    roll: 6,
+    year: "SE",
+    gpa: 8.47,
+    attendance: 78,
+    subjects: [
+      { subject: "Maths", marks: 74 },
+      { subject: "Physics", marks: 82 },
+      { subject: "Computer Science", marks: 80 },
+      { subject: "Software Engineering", marks: 78 }
+    ]
+  },
+  {
+    name: "Nisha",
+    roll: 7,
+    year: "TE",
+    gpa: 9.33,
+    attendance: 88,
+    subjects: [
+      { subject: "Maths", marks: 88 },
+      { subject: "Compiler Design", marks: 84 }
+    ]
+  },
+  {
+    name: "Sanjay",
+    roll: 8,
+    year: "FE",
+    gpa: 8.69,
+    attendance: 80,
+    subjects: [
+      { subject: "Chemistry", marks: 80 },
+      { subject: "Maths", marks: 84 },
+      { subject: "English", marks: 85 },
+      { subject: "Computer Architecture", marks: 81 }
+    ]
+  },
+  {
+    name: "Pooja",
+    roll: 9,
+    year: "SE",
+    gpa: 9.01,
+    attendance: 86,
+    subjects: [
+      { subject: "Physics", marks: 89 },
+      { subject: "Maths", marks: 82 },
+      { subject: "Web Technologies", marks: 90 }
+    ]
+  },
+  {
+    name: "Viraj",
+    roll: 10,
+    year: "TE",
+    gpa: 8.77,
+    attendance: 83,
+    subjects: [
+      { subject: "Maths", marks: 76 },
+      { subject: "Network Security", marks: 79 }
+    ]
+  },
+  {
+    name: "Sakshi",
+    roll: 11,
+    year: "FE",
+    gpa: 9.47,
+    attendance: 91,
+    subjects: [
+      { subject: "Biology", marks: 90 },
+      { subject: "Maths", marks: 83 },
+      { subject: "Physics", marks: 87 },
+      { subject: "Artificial Intelligence", marks: 91 }
+    ]
+  },
+  {
+    name: "Raj",
+    roll: 12,
+    year: "TE",
+    gpa: 8.92,
+    attendance: 84,
+    subjects: [
+      { subject: "Physics", marks: 88 },
+      { subject: "Chemistry", marks: 84 },
+      { subject: "Maths", marks: 75 },
+      { subject: "Software Testing", marks: 80 }
+    ]
+  },
+  {
+    name: "Ananya",
+    roll: 13,
+    year: "FE",
+    gpa: 9.23,
+    attendance: 79,
+    subjects: [
+      { subject: "Maths", marks: 92 },
+      { subject: "Machine Learning", marks: 89 }
+    ]
+  },
+  {
+    name: "Aman",
+    roll: 14,
+    year: "SE",
+    gpa: 8.45,
+    attendance: 76,
+    subjects: [
+      { subject: "Maths", marks: 77 },
+      { subject: "Physics", marks: 81 },
+      { subject: "Data Mining", marks: 83 }
+    ]
+  },
+  {
+    name: "Simran",
+    roll: 15,
+    year: "FE",
+    gpa: 9.61,
+    attendance: 93,
+    subjects: [
+      { subject: "Chemistry", marks: 89 },
+      { subject: "Biology", marks: 93 },
+      { subject: "Maths", marks: 90 },
+      { subject: "Physics", marks: 86 },
+      { subject: "Cloud Computing", marks: 91 }
+    ]
+  },
+  {
+    name: "Kunal",
+    roll: 16,
+    year: "TE",
+    gpa: 8.96,
+    attendance: 82,
+    subjects: [
+      { subject: "Physics", marks: 85 },
+      { subject: "Embedded Systems", marks: 87 }
+    ]
+  },
+  {
+    name: "Swara",
+    roll: 17,
+    year: "SE",
+    gpa: 9.12,
+    attendance: 81,
+    subjects: [
+      { subject: "Maths", marks: 87 },
+      { subject: "Chemistry", marks: 82 },
+      { subject: "English", marks: 79 },
+      { subject: "Artificial Intelligence", marks: 90 }
+    ]
+  },
+  {
+    name: "Gaurav",
+    roll: 18,
+    year: "FE",
+    gpa: 9.03,
+    attendance: 85,
+    subjects: [
+      { subject: "Maths", marks: 90 },
+      { subject: "Physics", marks: 86 },
+      { subject: "Chemistry", marks: 84 },
+      { subject: "Database Management Systems", marks: 88 }
+    ]
+  },
+  {
+    name: "Riya",
+    roll: 19,
+    year: "TE",
+    gpa: 8.84,
+    attendance: 77,
+    subjects: [
+      { subject: "Biology", marks: 92 },
+      { subject: "Maths", marks: 80 },
+      { subject: "Software Engineering", marks: 81 }
+    ]
+  },
+  {
+    name: "Harsh",
+    roll: 20,
+    year: "SE",
+    gpa: 8.57,
+    attendance: 78,
+    subjects: [
+      { subject: "Physics", marks: 84 },
+      { subject: "Chemistry", marks: 76 },
+      { subject: "Maths", marks: 79 },
+      { subject: "Operating Systems", marks: 75 }
+    ]
   }
 ]);
-
-db.orders.find();
-
-
 
 
 ________________________________________________________________________________________________
 
 
 
+Q1) Count the number of students
 
-1. Display only Customer and Email field of all documents:
-db.orders.find({}, { Customer: 1, Email: 1, _id: 0 });
-
-[
-  { "Customer": "Shreya", "Email": "shreya@mail.in" },
-  { "Customer": "Ajay", "Email": "ajay@mail.com" },
-  { "Customer": "Suresh", "Email": "suresh@mail.in" },
-  { "Customer": "Kiran", "Email": "kiran@mail.com" },
-  { "Customer": "Pooja", "Email": "pooja@mail.in" },
-  { "Customer": "Rohan", "Email": "rohan@mail.com" },
-  { "Customer": "Vijay", "Email": "vijay@mail.in" }
-]
+db.studentData.count();
 
 
+Q2) Show different years in which students are enrolled
 
-2. Find the order where PaymentMode is 'Card':
-db.orders.find({ PaymentMode: "Card" });
-
-[
-  {
-    "Customer": "Shreya",
-    "Address": { "City": "Mumbai", "Country": "India" },
-    "PaymentMode": "Card",
-    "Email": "shreya@mail.in",
-    "OrderTotal": 1200,
-    "OrderItems": [
-      { "ItemName": "diary", "Price": "300.00", "Qty": 3 },
-      { "ItemName": "pen", "Price": "20.00", "Qty": 10 }
-    ]
-  },
-  {
-    "Customer": "Kiran",
-    "Address": { "City": "Hyderabad", "Country": "India" },
-    "PaymentMode": "Card",
-    "Email": "kiran@mail.com",
-    "OrderTotal": 700,
-    "OrderItems": [
-      { "ItemName": "eraser", "Price": "3.00", "Qty": 100 },
-      { "ItemName": "ruler", "Price": "15.00", "Qty": 20 }
-    ]
-  }
-]
+db.studentData.distinct("year");
 
 
-3. Find the documents where 'paper' was ordered:
-db.orders.find({ "OrderItems.ItemName": "paper" });
+Q3) Show all students in the FE year with GPA greater than 9
 
-[]
-
-
-4. Calculate the total order value per customer:
-db.orders.aggregate([
-  { $group: { _id: "$Customer", totalOrderValue: { $sum: "$OrderTotal" } } }
+db.studentData.aggregate([
+  { $match: { $and: [{ year: "FE" }, { gpa: { $gt: 9 } }] } }
 ]);
 
-[
-  { "_id": "Shreya", "totalOrderValue": 1200 },
-  { "_id": "Ajay", "totalOrderValue": 450 },
-  { "_id": "Suresh", "totalOrderValue": 900 },
-  { "_id": "Kiran", "totalOrderValue": 700 },
-  { "_id": "Pooja", "totalOrderValue": 650 },
-  { "_id": "Rohan", "totalOrderValue": 550 },
-  { "_id": "Vijay", "totalOrderValue": 950 }
-]
 
- 
+Q4) Show the total GPA of students in SE year
 
-5. Count the number of orders made by each city:
-db.orders.aggregate([
-  { $group: { _id: "$Address.City", orderCount: { $sum: 1 } } }
+db.studentData.aggregate([
+  { $match: { year: "SE" } },
+  { $group: { _id: "$year", totalGPA: { $sum: "$gpa" } } }
 ]);
 
-[
-  { "_id": "Mumbai", "orderCount": 1 },
-  { "_id": "Pune", "orderCount": 1 },
-  { "_id": "Bangalore", "orderCount": 1 },
-  { "_id": "Hyderabad", "orderCount": 1 },
-  { "_id": "Nagpur", "orderCount": 1 },
-  { "_id": "Chennai", "orderCount": 1 },
-  { "_id": "Indore", "orderCount": 1 }
-]
+
+Q5) Find the student who has the subject "Machine Learning"
+
+db.studentData.find({ "subjects.subject": "Machine Learning" });
 
 
-6. List customers and the number of different types of items they ordered:
-db.orders.aggregate([
-  { $unwind: "$OrderItems" },
-  { $group: { _id: "$Customer", uniqueItems: { $addToSet: "$OrderItems.ItemName" } } },
-  { $project: { _id: 1, numberOfUniqueItems: { $size: "$uniqueItems" } } }
+Q6) Enlist all subjects taken by students in the TE year
+
+db.studentData.aggregate([
+  { $match: { year: "TE" } },
+  { $project: { _id: 0, name: 1, subjects: "$subjects.subject" } }
 ]);
 
-[
-  { "_id": "Shreya", "numberOfUniqueItems": 2 },
-  { "_id": "Ajay", "numberOfUniqueItems": 2 },
-  { "_id": "Suresh", "numberOfUniqueItems": 2 },
-  { "_id": "Kiran", "numberOfUniqueItems": 2 },
-  { "_id": "Pooja", "numberOfUniqueItems": 2 },
-  { "_id": "Rohan", "numberOfUniqueItems": 2 },
-  { "_id": "Vijay", "numberOfUniqueItems": 2 }
-]
 
+Q7) Count total number of subjects taken by all students and sort in descending order
 
-
-7. Calculate total order value and average order value by payment mode:
-db.orders.aggregate([
-  { $group: { _id: "$PaymentMode", totalValue: { $sum: "$OrderTotal" }, avgValue: { $avg: "$OrderTotal" } } },
-  { $sort: { totalValue: -1 } }
+db.studentData.aggregate([
+  { $unwind: "$subjects" },
+  { $group: { _id: null, totalSubjects: { $sum: 1 } } },
+  { $sort: { totalSubjects: -1 } }
 ]);
 
-[
-  { "_id": "Online", "totalValue": 2500, "avgValue": 833.33 },
-  { "_id": "Card", "totalValue": 1900, "avgValue": 950 },
-  { "_id": "Cash", "totalValue": 1000, "avgValue": 500 }
-]
 
+Q8) Count the number of subjects each student has
 
-
-8. Find the top 3 most frequently ordered items:
-db.orders.aggregate([
-  { $unwind: "$OrderItems" },
-  { $group: { _id: "$OrderItems.ItemName", totalOrdered: { $sum: "$OrderItems.Qty" } } },
-  { $sort: { totalOrdered: -1 } },
-  { $limit: 3 }
+db.studentData.aggregate([
+  { $unwind: "$subjects" },
+  { $group: { _id: "$name", totalSubjects: { $sum: 1 } } },
+  { $sort: { totalSubjects: 1 } }
 ]);
 
-[
-  { "_id": "eraser", "totalOrdered": 100 },
-  { "_id": "pencil", "totalOrdered": 100 },
-  { "_id": "sharpener", "totalOrdered": 50 }
-]
 
+Q9) Display all students with their respective attendance
 
-
-9. Calculate the total number of orders and average order value per city:
-db.orders.aggregate([
-  { $group: { _id: "$Address.City", totalOrders: { $sum: 1 }, avgOrderValue: { $avg: "$OrderTotal" } } }
+db.studentData.aggregate([
+  { $project: { name: 1, attendance: 1 } }
 ]);
 
-[
-  { "_id": "Mumbai", "totalOrders": 1, "avgOrderValue": 1200 },
-  { "_id": "Pune", "totalOrders": 1, "avgOrderValue": 450 },
-  { "_id": "Bangalore", "totalOrders": 1, "avgOrderValue": 900 },
-  { "_id": "Hyderabad", "totalOrders": 1, "avgOrderValue": 700 },
-  { "_id": "Nagpur", "totalOrders": 1, "avgOrderValue": 650 },
-  { "_id": "Chennai", "totalOrders": 1, "avgOrderValue": 550 },
-  { "_id": "Indore", "totalOrders": 1, "avgOrderValue": 950 }
-]
 
+Q10) Sort students based on GPA and display top 5 students
 
-10. Find total quantity ordered by each customer:
-db.orders.aggregate([
-  { $unwind: "$OrderItems" },
-  { $group: { _id: "$Customer", totalQty: { $sum: "$OrderItems.Qty" } } }
+db.studentData.aggregate([
+  { $match: { gpa: { $gt: 8 } } },  
+  { $sort: { gpa: -1 } },           
+  { $limit: 5 }                     
 ]);
-
-[
-  { "_id": "Shreya", "totalQty": 13 },
-  { "_id": "Ajay", "totalQty": 3 },
-  { "_id": "Suresh", "totalQty": 102 },
-  { "_id": "Kiran", "totalQty": 120 },
-  { "_id": "Pooja", "totalQty": 65 },
-  { "_id": "Rohan", "totalQty": 24 },
-  { "_id": "Vijay", "totalQty": 4 }
-]
-
-
 
 
 
