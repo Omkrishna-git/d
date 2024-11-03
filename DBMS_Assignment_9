@@ -3,280 +3,316 @@ Roll NO :- 31157
 
 _______________________________________________________________________________________________________
 
-db.wonders.insertMany([
+db.studentData.insertMany([
   {
-    name: "Great Wall of China",
-    location: {
-      country: "China",
-      region: "Asia"
-    },
-    year_built: "7th Century BC",
-    description: "A long wall built to protect China from invasions.",
-    visitors_per_year: 10000000,
-    type: "Ancient Wonder",
-    materials: ["Stone", "Brick"],
-    recognized_as_wonder: true,
-    reviews: [
-      {
-        reviewer: "Rajesh Deshmukh",
-        rating: 4.8,
-        review_text: "Stunning views but quite a hike."
-      },
-      {
-        reviewer: "Sneha Kulkarni",
-        rating: 4.5,
-        review_text: "Great experience but tiring."
-      }
+    name: "Shreya",
+    roll: 1,
+    year: "FE",
+    gpa: 9.41,
+    attendance: 75,
+    subjects: [
+      { subject: "Maths", marks: 96 },
+      { subject: "Physics", marks: 85 },
+      { subject: "Data Structures", marks: 90 },
+      { subject: "Digital Logic Design", marks: 88 }
     ]
   },
-
   {
-    name: "Petra",
-    location: {
-      country: "Jordan",
-      region: "Middle East"
-    },
-    year_built: "5th Century BC",
-    description: "Ancient city carved into rock.",
-    visitors_per_year: 1000000,
-    type: "Ancient Wonder",
-    materials: ["Rock"],
-    recognized_as_wonder: true,
-    reviews: [
-      {
-        reviewer: "Ajinkya Patil",
-        rating: 4.7,
-        review_text: "Unique and beautiful."
-      },
-      {
-        reviewer: "Minal Pawar",
-        rating: 4.9,
-        review_text: "The carvings are amazing!"
-      }
+    name: "Aarav",
+    roll: 2,
+    year: "FE",
+    gpa: 8.75,
+    attendance: 80,
+    subjects: [
+      { subject: "Maths", marks: 89 },
+      { subject: "Chemistry", marks: 78 },
+      { subject: "English", marks: 82 },
+      { subject: "Computer Networks", marks: 80 }
     ]
   },
-
   {
-    name: "Christ the Redeemer",
-    location: {
-      country: "Brazil",
-      region: "South America"
-    },
-    year_built: "1931",
-    description: "Famous statue overlooking Rio.",
-    visitors_per_year: 2000000,
-    type: "Modern Wonder",
-    materials: ["Concrete", "Soapstone"],
-    recognized_as_wonder: true,
-    reviews: [
-      {
-        reviewer: "Sagar Bhosale",
-        rating: 4.6,
-        review_text: "Beautiful view of the city."
-      },
-      {
-        reviewer: "Prajakta Gaikwad",
-        rating: 4.8,
-        review_text: "Iconic and peaceful."
-      }
+    name: "Ishita",
+    roll: 3,
+    year: "FE",
+    gpa: 9.12,
+    attendance: 90,
+    subjects: [
+      { subject: "Biology", marks: 92 },
+      { subject: "Microprocessors", marks: 86 }
     ]
   },
-
-
   {
-    name: "Machu Picchu",
-    location: {
-      country: "Peru",
-      region: "South America"
-    },
-    year_built: "15th Century",
-    description: "Inca citadel in the mountains.",
-    visitors_per_year: 1500000,
-    type: "Ancient Wonder",
-    materials: ["Stone"],
-    recognized_as_wonder: true,
-    reviews: [
-      {
-        reviewer: "Sameer Joshi",
-        rating: 5.0,
-        review_text: "Absolutely breathtaking."
-      },
-      {
-        reviewer: "Neha Sathe",
-        rating: 4.9,
-        review_text: "A magical experience."
-      }
+    name: "Rohan",
+    roll: 4,
+    year: "SE",
+    gpa: 8.92,
+    attendance: 85,
+    subjects: [
+      { subject: "Physics", marks: 81 },
+      { subject: "Maths", marks: 79 },
+      { subject: "History", marks: 72 },
+      { subject: "Geography", marks: 88 },
+      { subject: "Operating Systems", marks: 85 }
     ]
   },
-
   {
-    name: "Chichen Itza",
-    location: {
-      country: "Mexico",
-      region: "North America"
-    },
-    year_built: "600 AD",
-    description: "Mayan pyramid and ruins.",
-    visitors_per_year: 2500000,
-    type: "Ancient Wonder",
-    materials: ["Stone"],
-    recognized_as_wonder: true,
-    reviews: [
-      {
-        reviewer: "Tejaswini Shinde",
-        rating: 4.7,
-        review_text: "Impressive pyramid."
-      },
-      {
-        reviewer: "Prashant Kulkarni",
-        rating: 4.6,
-        review_text: "Best to visit early."
-      }
+    name: "Maya",
+    roll: 5,
+    year: "FE",
+    gpa: 9.58,
+    attendance: 92,
+    subjects: [
+      { subject: "Maths", marks: 95 },
+      { subject: "Chemistry", marks: 88 },
+      { subject: "Database Management Systems", marks: 92 }
     ]
   },
-
   {
-    name: "Roman Colosseum",
-    location: {
-      country: "Italy",
-      region: "Europe"
-    },
-    year_built: "80 AD",
-    description: "Ancient amphitheater in Rome.",
-    visitors_per_year: 7500000,
-    type: "Ancient Wonder",
-    materials: ["Concrete", "Stone"],
-    recognized_as_wonder: true,
-    reviews: [
-      {
-        reviewer: "Rahul Jadhav",
-        rating: 4.9,
-        review_text: "An incredible piece of history."
-      },
-      {
-        reviewer: "Aishwarya More",
-        rating: 4.8,
-        review_text: "Felt like stepping back in time."
-      }
+    name: "Kabir",
+    roll: 6,
+    year: "SE",
+    gpa: 8.47,
+    attendance: 78,
+    subjects: [
+      { subject: "Maths", marks: 74 },
+      { subject: "Physics", marks: 82 },
+      { subject: "Computer Science", marks: 80 },
+      { subject: "Software Engineering", marks: 78 }
     ]
   },
-
   {
-    name: "Taj Mahal",
-    location: {
-      country: "India",
-      region: "Asia"
-    },
-    year_built: "1648 AD",
-    description: "Marble mausoleum in Agra.",
-    visitors_per_year: 8000000,
-    type: "Modern Wonder",
-    materials: ["White Marble"],
-    recognized_as_wonder: true,
-    reviews: [
-      {
-        reviewer: "Swapnil Pawar",
-        rating: 5.0,
-        review_text: "A symbol of love and beauty."
-      },
-      {
-        reviewer: "Shraddha Pawar",
-        rating: 4.9,
-        review_text: "Architecturally unmatched."
-      }
+    name: "Nisha",
+    roll: 7,
+    year: "TE",
+    gpa: 9.33,
+    attendance: 88,
+    subjects: [
+      { subject: "Maths", marks: 88 },
+      { subject: "Compiler Design", marks: 84 }
+    ]
+  },
+  {
+    name: "Sanjay",
+    roll: 8,
+    year: "FE",
+    gpa: 8.69,
+    attendance: 80,
+    subjects: [
+      { subject: "Chemistry", marks: 80 },
+      { subject: "Maths", marks: 84 },
+      { subject: "English", marks: 85 },
+      { subject: "Computer Architecture", marks: 81 }
+    ]
+  },
+  {
+    name: "Pooja",
+    roll: 9,
+    year: "SE",
+    gpa: 9.01,
+    attendance: 86,
+    subjects: [
+      { subject: "Physics", marks: 89 },
+      { subject: "Maths", marks: 82 },
+      { subject: "Web Technologies", marks: 90 }
+    ]
+  },
+  {
+    name: "Viraj",
+    roll: 10,
+    year: "TE",
+    gpa: 8.77,
+    attendance: 83,
+    subjects: [
+      { subject: "Maths", marks: 76 },
+      { subject: "Network Security", marks: 79 }
+    ]
+  },
+  {
+    name: "Sakshi",
+    roll: 11,
+    year: "FE",
+    gpa: 9.47,
+    attendance: 91,
+    subjects: [
+      { subject: "Biology", marks: 90 },
+      { subject: "Maths", marks: 83 },
+      { subject: "Physics", marks: 87 },
+      { subject: "Artificial Intelligence", marks: 91 }
+    ]
+  },
+  {
+    name: "Raj",
+    roll: 12,
+    year: "TE",
+    gpa: 8.92,
+    attendance: 84,
+    subjects: [
+      { subject: "Physics", marks: 88 },
+      { subject: "Chemistry", marks: 84 },
+      { subject: "Maths", marks: 75 },
+      { subject: "Software Testing", marks: 80 }
+    ]
+  },
+  {
+    name: "Ananya",
+    roll: 13,
+    year: "FE",
+    gpa: 9.23,
+    attendance: 79,
+    subjects: [
+      { subject: "Maths", marks: 92 },
+      { subject: "Machine Learning", marks: 89 }
+    ]
+  },
+  {
+    name: "Aman",
+    roll: 14,
+    year: "SE",
+    gpa: 8.45,
+    attendance: 76,
+    subjects: [
+      { subject: "Maths", marks: 77 },
+      { subject: "Physics", marks: 81 },
+      { subject: "Data Mining", marks: 83 }
+    ]
+  },
+  {
+    name: "Simran",
+    roll: 15,
+    year: "FE",
+    gpa: 9.61,
+    attendance: 93,
+    subjects: [
+      { subject: "Chemistry", marks: 89 },
+      { subject: "Biology", marks: 93 },
+      { subject: "Maths", marks: 90 },
+      { subject: "Physics", marks: 86 },
+      { subject: "Cloud Computing", marks: 91 }
+    ]
+  },
+  {
+    name: "Kunal",
+    roll: 16,
+    year: "TE",
+    gpa: 8.96,
+    attendance: 82,
+    subjects: [
+      { subject: "Physics", marks: 85 },
+      { subject: "Embedded Systems", marks: 87 }
+    ]
+  },
+  {
+    name: "Swara",
+    roll: 17,
+    year: "SE",
+    gpa: 9.12,
+    attendance: 81,
+    subjects: [
+      { subject: "Maths", marks: 87 },
+      { subject: "Chemistry", marks: 82 },
+      { subject: "English", marks: 79 },
+      { subject: "Artificial Intelligence", marks: 90 }
+    ]
+  },
+  {
+    name: "Gaurav",
+    roll: 18,
+    year: "FE",
+    gpa: 9.03,
+    attendance: 85,
+    subjects: [
+      { subject: "Maths", marks: 90 },
+      { subject: "Physics", marks: 86 },
+      { subject: "Chemistry", marks: 84 },
+      { subject: "Database Management Systems", marks: 88 }
+    ]
+  },
+  {
+    name: "Riya",
+    roll: 19,
+    year: "TE",
+    gpa: 8.84,
+    attendance: 77,
+    subjects: [
+      { subject: "Biology", marks: 92 },
+      { subject: "Maths", marks: 80 },
+      { subject: "Software Engineering", marks: 81 }
+    ]
+  },
+  {
+    name: "Harsh",
+    roll: 20,
+    year: "SE",
+    gpa: 8.57,
+    attendance: 78,
+    subjects: [
+      { subject: "Physics", marks: 84 },
+      { subject: "Chemistry", marks: 76 },
+      { subject: "Maths", marks: 79 },
+      { subject: "Operating Systems", marks: 75 }
     ]
   }
 ]);
 
-
-1) Find Wonders with Visitors Greater Than a Value ($gt)
-
-db.wonders.find({"visitors_per_year": {$gt: 5000000}});
+------------------------------------------------------------------------------------------------------------------------
 
 
-2) Find Wonders Located in Asia
 
-db.wonders.find({"location.region": "Asia"});
+// 1) Find Students with GPA Greater Than a Value
+db.studentData.find({"gpa": {$gt: 9.0}});
 
+// 2) Find Students in the First Year (FE)
+db.studentData.find({"year": "FE"});
 
-3) Update a Document's Description
-
-db.wonders.updateOne(
-    {name: "Taj Mahal"},
-    {$set: {description: "A beautiful marble mausoleum in Agra."}}
+// 3) Update a Student's Attendance
+db.studentData.updateOne(
+  {name: "Kabir"},
+  {$set: {attendance: 80}} 
 );
 
-
-4) Increment Visitors per Year for All Wonders Recognized as Wonders
-
-db.wonders.updateMany(
-    {recognized_as_wonder: true},
-    {$inc: {visitors_per_year: 100000}} // Incrementing by 100,000
+// 4) Increment GPA for All Students in the Second Year (SE)
+db.studentData.updateMany(
+  {year: "SE"},
+  {$inc: {gpa: 0.1}} // Increment GPA by 0.1
 );
 
-
-5) Upsert a New Wonder
-If a wonder with the name "New Wonder" doesn't exist, insert it.
-
-db.wonders.updateOne(
-    {name: "New Wonder"},
-    {$set: {location: {country: "Unknown", region: "Unknown"}, year_built: "2023", description: "A new entry", visitors_per_year: 0, type: "Modern Wonder", materials: [], recognized_as_wonder: false}},
-    {upsert: true}
+// 5) Upsert a New Student
+db.studentData.updateOne(
+  {name: "New Student"},
+  {$set: {roll: 21, year: "FE", gpa: 8.5, attendance: 75, subjects: []}},
+  {upsert: true}
 );
 
+// 6) Find Students with Marks in Maths Greater Than 90
+db.studentData.find({"subjects": {$elemMatch: {subject: "Maths", marks: {$gt: 90}}}});
 
-6) Find Wonders with Reviews Rating Greater Than 4.5
+// 7) Delete Students with Attendance Below 75%
+db.studentData.deleteMany({"attendance": {$lt: 75}});
 
-db.wonders.find({"reviews.rating": {$gt: 4.5}});
+// 8) Find Document with the Name "Maya" and Return Only Name and GPA
+db.studentData.find({name: "Maya"}, {name: 1, gpa: 1, _id: 0});
 
+// 9) Delete All Documents Where the Name is "Raj"
+db.studentData.deleteMany({name: "Raj"});
 
-7) Delete Wonders Made of Stone
-
-db.wonders.deleteMany({"materials": "Stone"});
-
-
-8) Find Document with the Name "Machu Picchu" and Return Only name and year_built
-
-db.wonders.find({name: "Machu Picchu"}, {name: 1, year_built: 1, _id: 0});
-
-
-9) Delete All Documents Where the Name is "Chichen Itza"
-
-db.wonders.deleteMany({name: "Chichen Itza"});
-
-
-10) Add a Review from a New Reviewer
-
-db.wonders.updateOne(
-    {name: "Christ the Redeemer"},
-    {$addToSet: {reviews: {reviewer: "New Reviewer", rating: 4.5, review_text: "A must-visit!"}}}
+// 10) Add a New Subject to a Student
+db.studentData.updateOne(
+  {name: "Ananya"},
+  {$addToSet: {subjects: {subject: "Operating Systems", marks: 85}}}
 );
 
+// 11) Find Students Where the year is Either "FE" or "TE"
+db.studentData.find({$or: [{year: "FE"}, {year: "TE"}]});
 
-11) Find Documents Where the Type is Either "Ancient Wonder" or "Modern Wonder"
+// 12) Find All Students in the Third Year (TE) and Sort by GPA in Descending Order
+db.studentData.find({"year": "TE"}).sort({gpa: -1});
 
-db.wonders.find({$or: [{type: "Ancient Wonder"}, {type: "Modern Wonder"}]});
+// 13) Find Students Who Have a GPA Greater Than 8.5 and Attendance Greater Than 80%
+db.studentData.find({$and: [{gpa: {$gt: 8.5}}, {attendance: {$gt: 80}}]});
 
-
-12) Find All Wonders in Europe and Sort by Visitors in Descending Order
-
-db.wonders.find({"location.region": "Europe"}).sort({visitors_per_year: -1});
-
-
-13) Find Wonders That Are Recognized as Wonders and Have Visitors Greater Than 5 Million
-
-db.wonders.find({$and: [{recognized_as_wonder: true}, {visitors_per_year: {$gt: 5000000}}]});
-
-
-14) Update Review for "Machu Picchu"
-
-db.wonders.updateOne(
-    {name: "Machu Picchu", "reviews.reviewer": "Sameer Joshi"},
-    {$set: {"reviews.$.review_text": "Absolutely magnificent experience!"}}
+// 14) Update Subject Marks for "Viraj"
+db.studentData.updateOne(
+  {name: "Viraj", "subjects.subject": "Maths"},
+  {$set: {"subjects.$.marks": 85}} 
 );
-
-
-
-
-
 
