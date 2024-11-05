@@ -334,3 +334,234 @@ db.studentData.aggregate([
 
 
 
+db.Employee.insertMany([
+  {
+    empid: 1,
+    name: "John Doe",
+    age: 30,
+    hobbies: ["Cycling", "Reading"],
+    review: {
+      type: "Manager",
+      comments: "Outstanding performance throughout the year."
+    },
+    salary: 75000.50,
+    gender: "Male"
+  },
+  {
+    empid: 2,
+    name: "Jane Smith",
+    age: 28,
+    hobbies: ["Acting", "Traveling"],
+    review: {
+      type: "Supervisor",
+      comments: "Meets expectations and shows great potential."
+    },
+    salary: 62000.00,
+    gender: "Female"
+  },
+  {
+    empid: 3,
+    name: "Emily Johnson",
+    age: 25,
+    hobbies: ["Cycling", "Sports"],
+    review: {
+      type: "Manager",
+      comments: "Strong leadership skills and teamwork."
+    },
+    salary: 70000.00,
+    gender: "Female"
+  },
+  {
+    empid: 4,
+    name: "Michael Brown",
+    age: 35,
+    hobbies: ["Reading", "Traveling"],
+    review: {
+      type: "Supervisor",
+      comments: "Consistently delivers high-quality work."
+    },
+    salary: 80000.75,
+    gender: "Male"
+  },
+  {
+    empid: 5,
+    name: "Jessica Williams",
+    age: 29,
+    hobbies: ["Acting", "Cycling"],
+    review: {
+      type: "Manager",
+      comments: "Exceeds expectations and drives results."
+    },
+    salary: 72000.25,
+    gender: "Female"
+  }
+]);
+
+
+
+
+// Aggregate employees by their hobbies
+db.Employee.aggregate([
+    { $unwind: "$hobbies" },
+    { 
+        $group: {
+            _id: "$hobbies",
+            Employees: { $push: "$name" }  // Correctly wrap "$name" without quotes
+        }
+    },
+    { $sort: { _id: 1 } }  // Corrected sort syntax
+]);
+
+// Aggregate total salary of male employees and count, sorted by salary in descending order
+db.Employee.aggregate([
+    { $match: { gender: 'Male' } },
+    { 
+        $group: {
+            _id: "$name",
+            totalSalary: { $sum: "$salary" }
+        }
+    },
+    { $sort: { totalSalary: -1 } },  // Sort by salary in descending order after grouping by name
+    { 
+        $group: {
+            _id: null,
+            TotalSalary: { $sum: "$totalSalary" },
+            Count: { $sum: 1 }
+        }
+    },
+    { 
+        $project: { 
+            _id: 0,
+            TotalSalary: 1,
+            Count: 1
+        } 
+    }
+]);
+
+// Create unique index on empid
+db.Employee.createIndex({ empid: 1 }, { unique: true });
+
+// Optional additional indexes (adjust if needed to optimize queries)
+db.Employee.createIndex({ empid: 1, name: 1 });
+
+// Test queries with `explain`
+db.Employee.find({ empid: 1 }).explain();
+db.Employee.find({ empid: 1, name: "" }).explain();
+db.Employee.find({ empid: 7 }).explain();
+
+
+
+
+
+
+Simple Aggregation Queries
+
+
+Count the total number of employees:
+
+db.Employee.aggregate([
+    {
+        $count: "totalEmployees"
+    }
+]);  
+
+ 
+
+Find the average salary of all employees:
+
+db.Employee.aggregate([
+    {
+        $group: {
+            _id: null,
+            averageSalary: { $avg: "$salary" }
+        }
+    }
+]);
+
+
+Get the maximum age of employees:
+
+db.Employee.aggregate([
+    {
+        $group: {
+            _id: null,
+            maxAge: { $max: "$age" }
+        }
+    }
+]);
+
+
+
+List distinct hobbies from all employees:
+
+db.Employee.aggregate([
+    {
+        $group: {
+            _id: null,
+            distinctHobbies: { $addToSet: "$hobbies" }
+        }
+    }
+]);
+
+
+Pipeline Aggregation Queries
+
+
+Group employees by gender and calculate total salary per gender:
+
+db.Employee.aggregate([
+    {
+        $group: {
+            _id: "$gender",
+            totalSalary: { $sum: "$salary" }
+        }
+    },
+    {
+        $sort: { totalSalary: -1 }
+    }
+]);
+
+
+Find the average salary for each review type (Manager/Supervisor):
+
+db.Employee.aggregate([
+    {
+        $group: {
+            _id: "$review.type",
+            averageSalary: { $avg: "$salary" }
+        }
+    }
+]);
+
+
+Unwind the hobbies and count how many employees have each hobby:
+
+db.Employee.aggregate([
+    { $unwind: "$hobbies" },
+    {
+        $group: {
+            _id: "$hobbies",
+            employeeCount: { $sum: 1 }
+        }
+    },
+    {
+        $sort: { employeeCount: -1 }
+    }
+]);
+
+
+
+Calculate the total salary and average age of employees for each review type:
+
+db.Employee.aggregate([
+    {
+        $group: {
+            _id: "$review.type",
+            totalSalary: { $sum: "$salary" },
+            averageAge: { $avg: "$age" }
+        }
+    }
+]);
+
+
+
